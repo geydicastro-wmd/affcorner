@@ -1,0 +1,81 @@
+// Variables
+$overlay-color: rgba(0, 0, 0, 0.65);
+$text-color: #ffffff;
+$overlay-box: rgba(2, 2, 2, 0.6);
+
+.hero-carousel {
+  height: 100vh;
+
+  .carousel-inner,
+  .carousel-item,
+  .hero-slide {
+    height: 100%;
+  }
+
+  .hero-slide {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: $overlay-color;
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: absolute;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: $text-color;
+    z-index: 2;
+    min-width: 350px;
+    padding: 0 20px;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+
+    button {
+      padding: 0.8rem 2rem;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+/*    .hero-content {
+    background: $overlay-box;
+    }*/
+
+  // Responsive
+  @media (max-width: 768px) {
+    .hero-content {
+      bottom: 15%;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+}

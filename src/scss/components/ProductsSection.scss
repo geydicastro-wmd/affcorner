@@ -1,0 +1,136 @@
+.products {
+  padding: 80px 0;
+  background: #f5f5f5;
+
+  &__title {
+    color: #f5a800;
+    font-size: 3rem;
+    font-weight: 800;
+  }
+
+  &__subtitle {
+    text-transform: uppercase;
+    color: #6c757d;
+    font-weight: 300;
+  }
+
+  // CARD
+  &__card {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border-radius: 15px;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      .products__bg {
+        transform: scale(1.1);
+      }
+
+      .products__overlay {
+        background: rgba(0, 0, 0, 0.884);
+      }
+
+      .products__icon {
+        transform: translateY(-10px) scale(1.05);
+      }
+    }
+  }
+
+  // BACKGROUND IMAGE
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+  }
+
+  // DARK OVERLAY
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.822);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.945), transparent , rgba(148, 148, 148, 0.74),);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    transition: all 0.3s ease;
+  }
+
+   @media (max-width: 768px) {
+    &__overlay {
+      background: linear-gradient(
+        180deg, // 🔥 vertical en mobile (mucho mejor UX)
+        rgba(0, 0, 0, 0.9),
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.95)
+      );
+    }
+  }
+
+  // TEXT CONTENT
+  &__content {
+    color: #fff;
+    max-width: 60%;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      padding-left: 18px;
+
+      li {
+        font-size: 1rem;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  // ICON
+  &__icon {
+    width: 120px;
+    transition: all 0.3s ease;
+  }
+
+  // CTA BUTTON
+  &__cta {
+    background: #f5a800;
+    border: none;
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 12px;
+    border-radius: 50px;
+
+    &:hover {
+      background: #e09a00;
+    }
+  }
+
+  // 📱 MOBILE
+  @media (max-width: 768px) {
+    &__card {
+      height: auto;
+    }
+
+    &__overlay {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    &__content {
+      max-width: 100%;
+    }
+
+    &__icon {
+      margin-top: -15px;
+      width: 90px;
+    }
+  }
+}

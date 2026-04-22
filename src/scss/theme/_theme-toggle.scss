@@ -1,0 +1,33 @@
+.theme-toggle {
+  all: unset;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+
+  transition: all 0.25s ease;
+
+  &:hover {
+    transform: rotate(12deg) scale(1.08);
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Light mode */
+[data-theme="light"] .theme-toggle {
+  background: rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.15);
+  }
+}

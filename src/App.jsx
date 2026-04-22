@@ -1,0 +1,28 @@
+import { Link, Outlet } from 'react-router-dom'
+import { lazy, Suspense} from "react"
+import { Container } from "react-bootstrap"
+import ScrollToTopButton from "./components/common/ScrollToTopButton.jsx";
+
+// Lazy components
+const Header = lazy(() => import("./components/layout/Header.jsx"));
+const Footer = lazy(() => import("./components/layout/Footer.jsx"));
+
+function App() {
+  return (
+    <>
+      <Container fluid className="p-0">
+        <Header />
+
+        <main>
+          <Outlet />
+        </main>
+
+        <Footer />
+      </Container>
+
+      <ScrollToTopButton />
+    </>
+  );
+}
+
+export default App;

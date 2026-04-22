@@ -1,0 +1,68 @@
+.cta {
+  background: #f5f5f5;
+  padding: 80px 0;
+  overflow: hidden;
+
+  &__content {
+    padding: 40px 20px;
+  }
+
+  &__title {
+    font-size: 3.2rem;
+    font-weight: 300;
+    color: #1c1c1c;
+    line-height: 1.2;
+    max-width: 520px;
+
+    @media (max-width: 1200px) {
+      margin: 0 auto;
+    }
+  }
+
+  // 🔥 BUTTON exact style
+  &__btn {
+    margin-top: 40px;
+    background: #f5a800;
+    border: none;
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 14px 40px;
+    font-size: 1.4rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #e09a00;
+      color: #000;
+      transform: translateY(-2px);
+    }
+  }
+
+  // IMAGE
+  &__image {
+    img {
+      max-width: 100%;
+      height: auto;
+
+      // 🔥 makes it feel like design (slight overlap feel)
+      @media (min-width: 1200px) {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  // 📱 Mobile tuning
+  @media (max-width: 768px) {
+    padding: 60px 0;
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__btn {
+      font-size: 1rem;
+      padding: 12px 28px;
+    }
+  }
+}
