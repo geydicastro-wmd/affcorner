@@ -1,21 +1,32 @@
-import { useState, useEffect } from 'react'
-import { Navbar, Nav, Container, Offcanvas } from 'react-bootstrap'
-import { FaHome, FaInfoCircle, FaStar, FaQuestion } from 'react-icons/fa'
-import { RiMoneyDollarCircleFill } from 'react-icons/ri'
-import { BsChatSquareDotsFill } from 'react-icons/bs'
-import { MdJoinFull } from 'react-icons/md'
-import { Link } from 'react-router-dom'
-import Logo from '../../assets/logo.png'
+import { useEffect, useState } from "react";
+import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Logo from "../../assets/logo.png";
 
-export default function Header({ theme, setTheme }) {
-  const [scrolled, setScrolled] = useState(false)
-  const [show, setShow] = useState(false)
+const navItems = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Brands", to: "/brands" },
+  { label: "Join", to: "/join" },
+  { label: "Commissions", to: "/commissions" },
+  { label: "Contact", to: "/contact" },
+  { label: "FAQs", to: "/frequentlyaskedquestions" },
+];
+
+export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 80)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    const handleScroll = () => setScrolled(window.scrollY > 80);
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const closeMenu = () => setShowMenu(false);
 
   return (
     <>
@@ -23,71 +34,79 @@ export default function Header({ theme, setTheme }) {
         expand="lg"
         fixed="top"
         variant="dark"
-        className={`navbar-custom ${scrolled ? 'scrolled' : ''}`}
+        className={`navbar-custom ${scrolled ? "scrolled" : ""}`}
       >
-        <Container className="navbar-layout">
+        <Container fluid className="mx-0 mx-lg-5">
+          <Navbar.Toggle
+            aria-controls="main-menu"
+            className="navbar-mobile-toggle d-lg-none"
+            onClick={() => setShowMenu(true)}
+          />
 
-          {/* Logo izquierda */}
           <Navbar.Brand as={Link} to="/" className="navbar-logo">
             <img src={Logo} width="210" alt="Affcorner logo" />
           </Navbar.Brand>
 
-          {/* Toggle mobile */}
-          <Navbar.Toggle onClick={() => setShow(true)} />
-
-          {/* Menú desktop centrado */}
-          <Nav className="navbar-center d-none d-lg-flex">
-            <Nav.Link as={Link} to="/"> Home</Nav.Link>
-            <Nav.Link as={Link} to="/about"> About</Nav.Link>
-            <Nav.Link as={Link} to="/brands"> Brands</Nav.Link>
-            <Nav.Link as={Link} to="/join">Join</Nav.Link>
-            <Nav.Link as={Link} to="/commissions"> Commissions</Nav.Link>
-            <Nav.Link as={Link} to="/contact"> Contact</Nav.Link>
-            <Nav.Link as={Link} to="/frequentlyaskedquestions"> FAQs</Nav.Link>
+          <Nav className="navbar-menu d-none d-lg-flex mx-auto">
+            {navItems.map(({ label, to }) => (
+              <Nav.Link key={to} as={Link} to={to}>
+                {label}
+              </Nav.Link>
+            ))}
           </Nav>
 
-          {/* Auth desktop derecha */}
-          <div className="auth-desktop d-none d-lg-flex g-3">
-            <Link to="/login" className="btn btn-outline-light rounded-pill btn-lg">Login</Link>
-            <Link to="/register" className="btn btn-warning rounded-pill btn-lg ms-3">Register</Link>
+          <div className="navbar-actions d-none d-lg-flex gap-2">
+            <Link to="/register" className="btn btn-outline-white">
+              REGISTER NOW
+            </Link>
+            <Link to="/login" className="btn btn-outline-white">
+              LOGIN
+            </Link>
           </div>
 
-          <button
-            className="theme-toggle ms-3 d-none d-lg-block"
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? '☀️' : '🌙'}
-          </button>
-
+          <div className="navbar-mobile-actions d-flex d-lg-none align-items-center gap-2 ms-auto">
+            <Link to="/register" className="btn btn-outline-white navbar-mobile-cta">
+              REGISTER
+            </Link>
+            <Link to="/login" className="btn btn-outline-white navbar-mobile-cta">
+              LOGIN
+            </Link>
+          </div>
         </Container>
       </Navbar>
 
-      {/* OFFCANVAS MOBILE */}
-      <Offcanvas show={show} onHide={() => setShow(false)} placement="end" className="offcanvas-custom text-bg-dark">
-        <Offcanvas.Header closeButton>
+      <Offcanvas
+        id="main-menu"
+        show={showMenu}
+        onHide={closeMenu}
+        placement="end"
+        className="offcanvas-custom text-bg-dark"
+      >
+        <Offcanvas.Header closeButton closeVariant="white">
           <Offcanvas.Title>
             <img src={Logo} width="140" alt="Affcorner logo" />
           </Offcanvas.Title>
         </Offcanvas.Header>
 
         <Offcanvas.Body>
-          <Nav className="flex-column">
-            <Nav.Link as={Link} to="/" onClick={() => setShow(false)}><FaHome /> Home</Nav.Link>
-            <Nav.Link as={Link} to="/about" onClick={() => setShow(false)}><FaInfoCircle /> About</Nav.Link>
-            <Nav.Link as={Link} to="/brands" onClick={() => setShow(false)}><FaStar /> Brands</Nav.Link>
-            <Nav.Link as={Link} to="/join" onClick={() => setShow(false)}><MdJoinFull /> Join</Nav.Link>
-            <Nav.Link as={Link} to="/commissions" onClick={() => setShow(false)}><RiMoneyDollarCircleFill /> Commissions</Nav.Link>
-            <Nav.Link as={Link} to="/contact" onClick={() => setShow(false)}><BsChatSquareDotsFill /> Contact</Nav.Link>
-            <Nav.Link as={Link} to="/frequentlyaskedquestions" onClick={() => setShow(false)}><FaQuestion /> FAQs</Nav.Link>
-
-            <div className="mt-4">
-              <Link to="/login" onClick={() => setShow(false)} className="btn btn-outline-light w-100 mb-2">Login</Link>
-              <Link to="/register" onClick={() => setShow(false)} className="btn btn-warning w-100 text-dark">Register</Link>
-            </div>
+          <Nav className="navbar-menu flex-column">
+            {navItems.map(({ label, to }) => (
+              <Nav.Link key={to} as={Link} to={to} onClick={closeMenu}>
+                {label}
+              </Nav.Link>
+            ))}
           </Nav>
+
+          <div className="d-grid gap-2 mt-4">
+            <Link to="/register" className="btn btn-outline-white" onClick={closeMenu}>
+              REGISTER NOW
+            </Link>
+            <Link to="/login" className="btn btn-outline-white" onClick={closeMenu}>
+              LOGIN
+            </Link>
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
     </>
-  )
+  );
 }

@@ -1,10 +1,10 @@
 @use 'bootstrap/dist/css/bootstrap.min.css';
 @use './theme/theme';
-@use './theme/theme-toggle';
 @use './components/AppNavbar';
 @use './components/HeroSlider';
 @use './colors/colors';
 @use './components/BrandsLogos';
+@use './components/SectionHeading';
 @use "./components/Footer.scss";
 @use "./components/CommissionPlans.scss";
 @use "./components/CTASection.scss";

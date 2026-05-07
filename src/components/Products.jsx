@@ -12,30 +12,34 @@ import CardBg04 from "../assets/products/virtualcasino_back.jpg";
 const products = [
   {
     title: "Sportsbook",
+    label: "Odds and markets",
     bg: CardBg01,
     icon: Icon01,
     features: [
-      "Industry best dime lines",
-      "Up to date odds on all major sports",
+      "Competitive dime lines",
+      "Updated odds on major sports",
     ],
   },
   {
     title: "Live Casino",
+    label: "Real dealer action",
     bg: CardBg02,
     icon: Icon02,
-    features: ["No download needed", "Live dealer casino"],
+    features: ["Instant browser access", "Live dealer casino tables"],
   },
   {
     title: "Horse Racing",
+    label: "Daily race coverage",
     bg: CardBg03,
     icon: Icon03,
-    features: ["Daily matchups", "Mobile betting available"],
+    features: ["Daily race matchups", "Mobile betting available"],
   },
   {
     title: "Virtual Casino",
+    label: "Always-on casino",
     bg: CardBg04,
     icon: Icon04,
-    features: ["Video poker", "Over 15+ table games"],
+    features: ["Video poker and slots", "15+ table game options"],
   },
 ];
 
@@ -43,31 +47,40 @@ export default function ProductsSection() {
   return (
     <section className="products">
 
-      <Container className="text-center text-md-start">
-        <h1 className="products__title">Products Offered</h1>
-        <hr />
-        <h4 className="products__subtitle">
-          What our brands include
-        </h4>
+      <Container>
+        <Row className="section-heading">
+          <Col lg={7}>
+            <p className="section-heading__eyebrow">Product coverage</p>
+            <h1 className="section-heading__title">Products Offered</h1>
+          </Col>
+          <Col lg={5}>
+            <p className="section-heading__subtitle">
+              Sportsbook, casino, racing, and virtual products give partners
+              multiple ways to convert and retain players.
+            </p>
+          </Col>
+        </Row>
       </Container>
 
       <Container>
-        <Row className="g-5 mt-4">
+        <Row className="g-4 products__grid">
           {products.map((item, i) => (
             <Col lg={6} xs={12} key={i}>
-              
               <Card className="products__card">
-                
-                {/* Background */}
                 <div
                   className="products__bg"
                   style={{ backgroundImage: `url(${item.bg})` }}
                 />
 
-                {/* Overlay Content */}
                 <div className="products__overlay">
-
                   <div className="products__content">
+                    <img
+                      src={item.icon}
+                      alt={item.title}
+                      className="products__icon"
+                    />
+
+                    <p className="products__label">{item.label}</p>
                     <h2>{item.title}</h2>
 
                     <ul>
@@ -76,30 +89,24 @@ export default function ProductsSection() {
                       ))}
                     </ul>
                   </div>
-
-                  <img
-                    src={item.icon}
-                    alt={item.title}
-                    className="products__icon"
-                  />
                 </div>
-
               </Card>
-
             </Col>
           ))}
         </Row>
 
-        {/* CTA */}
-        <Row className="justify-content-center mt-5">
-          <Col lg={3} xs={8}>
+        <Row className="justify-content-center">
+          <Col lg={5} xs={12}>
+            <div className="products__cta-panel">
+              <span>Ready to explore the full platform?</span>
             <Button
               as={Link}
               to="/login"
-              className="products__cta w-100"
+                className="products__cta"
             >
-              Sign in Now
+                Sign in Now
             </Button>
+            </div>
           </Col>
         </Row>
 

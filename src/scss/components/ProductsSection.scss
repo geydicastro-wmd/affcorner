@@ -1,136 +1,238 @@
 .products {
-  padding: 80px 0;
-  background: #f5f5f5;
+  position: relative;
+  padding: 96px 0;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(245, 168, 0, 0.18), transparent 28%),
+    radial-gradient(circle at 88% 72%, rgba(245, 168, 0, 0.1), transparent 30%),
+    linear-gradient(135deg, #101a31 0%, #1a2c4f 48%, #090d17 100%);
+  overflow: hidden;
 
-  &__title {
-    color: #f5a800;
-    font-size: 3rem;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 84%, transparent);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "ODDS  +120   $   21   777   LIVE   %";
+    position: absolute;
+    right: -80px;
+    bottom: 30px;
+    max-width: 720px;
+    color: rgba(255, 255, 255, 0.055);
+    font-size: 5.4rem;
     font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: 0.08em;
+    pointer-events: none;
   }
 
-  &__subtitle {
-    text-transform: uppercase;
-    color: #6c757d;
-    font-weight: 300;
+  .container {
+    position: relative;
+    z-index: 1;
   }
 
-  // CARD
+  .section-heading {
+    border-bottom-color: rgba(255, 255, 255, 0.14);
+
+    &__eyebrow {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    &__subtitle {
+      color: rgba(255, 255, 255, 0.82);
+    }
+  }
+
+  &__grid {
+    margin-top: 48px;
+  }
+
   &__card {
     position: relative;
-    aspect-ratio: 16 / 10;
-    border-radius: 15px;
+    aspect-ratio: 16 / 9;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
     overflow: hidden;
-    border: none;
+    background: #101010;
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    isolation: isolate;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(245, 168, 0, 0.2), transparent 24%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 34%);
+      opacity: 0;
+      transition: opacity 0.28s ease;
+      z-index: 2;
+    }
 
     &:hover {
-      .products__bg {
-        transform: scale(1.1);
+      border-color: rgba(245, 168, 0, 0.42);
+      box-shadow: 0 30px 64px rgba(0, 0, 0, 0.38);
+      transform: translateY(-6px);
+
+      &::before {
+        opacity: 1;
       }
 
-      .products__overlay {
-        background: rgba(0, 0, 0, 0.884);
+      .products__bg {
+        transform: scale(1.08);
       }
 
       .products__icon {
-        transform: translateY(-10px) scale(1.05);
+        transform: translateY(-6px) scale(1.04);
       }
     }
   }
 
-  // BACKGROUND IMAGE
   &__bg {
     position: absolute;
     inset: 0;
     background-size: cover;
     background-position: center;
-    transition: transform 0.6s ease;
+    filter: saturate(0.95) contrast(1.03);
+    transform: scale(1.01);
+    transition: transform 0.65s ease;
+    z-index: 0;
   }
 
-  // DARK OVERLAY
   &__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.822);
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.945), transparent , rgba(148, 148, 148, 0.74),);
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.58) 45%, rgba(0, 0, 0, 0.16) 100%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.55), transparent 52%);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px;
-    transition: all 0.3s ease;
+    align-items: flex-end;
+    padding: 34px;
+    z-index: 1;
   }
 
-   @media (max-width: 768px) {
-    &__overlay {
-      background: linear-gradient(
-        180deg, // 🔥 vertical en mobile (mucho mejor UX)
-        rgba(0, 0, 0, 0.9),
-        rgba(0, 0, 0, 0.6),
-        rgba(0, 0, 0, 0.95)
-      );
-    }
-  }
-
-  // TEXT CONTENT
   &__content {
+    max-width: 68%;
     color: #fff;
-    max-width: 60%;
+    position: relative;
+    z-index: 3;
 
     h2 {
+      margin: 6px 0 12px;
       font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 10px;
+      font-weight: 800;
+      line-height: 1.1;
     }
 
     ul {
-      padding-left: 18px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
 
       li {
-        font-size: 1rem;
-        margin-bottom: 5px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.98rem;
+        line-height: 1.6;
       }
     }
   }
 
-  // ICON
   &__icon {
-    width: 120px;
-    transition: all 0.3s ease;
+    width: 108px;
+    margin-bottom: 12px;
+    object-fit: contain;
+    transition: transform 0.28s ease;
   }
 
-  // CTA BUTTON
+  &__label {
+    margin: 0;
+    color: #f5a800;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &__cta-panel {
+    margin-top: 44px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 8px;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+
+    span {
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+  }
+
   &__cta {
+    flex: 0 0 auto;
     background: #f5a800;
     border: none;
     color: #000;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
-    padding: 12px;
+    padding: 12px 24px;
     border-radius: 50px;
+    transition: transform 0.25s ease, background 0.25s ease;
 
     &:hover {
       background: #e09a00;
+      color: #000;
+      transform: translateY(-2px);
     }
   }
 
-  // 📱 MOBILE
   @media (max-width: 768px) {
+    padding: 80px 0;
+
+    &::after {
+      display: none;
+    }
+
     &__card {
-      height: auto;
+      aspect-ratio: 4 / 3;
     }
 
     &__overlay {
-      flex-direction: column;
-      text-align: center;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.92));
+      padding: 26px;
     }
 
     &__content {
       max-width: 100%;
+
+      h2 {
+        font-size: 1.65rem;
+      }
     }
 
     &__icon {
-      margin-top: -15px;
-      width: 90px;
+      width: 86px;
+    }
+
+    &__cta-panel {
+      align-items: stretch;
+      flex-direction: column;
+      text-align: center;
     }
   }
 }

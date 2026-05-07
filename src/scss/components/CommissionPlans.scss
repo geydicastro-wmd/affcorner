@@ -1,108 +1,162 @@
 .commissions {
   position: relative;
-  padding: 80px 0;
-  background: #f5f5f5;
+  padding: 96px 0;
+  background:
+    linear-gradient(180deg, #f8f8f8 0%, #f1f1f1 100%);
   overflow: hidden;
 
-  // 🔥 background texture + diagonal shapes
   &::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      120deg,
-      rgba(0, 0, 0, 0.03) 25%,
-      transparent 25%
-    ),
-    linear-gradient(
-      240deg,
-      rgba(0, 0, 0, 0.03) 25%,
-      transparent 25%
-    );
-    background-size: 600px 600px;
-    opacity: 0.5;
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 78%, transparent);
+    pointer-events: none;
   }
 
-  &__title {
-    color: #f5a800;
-    font-weight: 800;
-    font-size: 3rem;
+  .container {
+    position: relative;
+    z-index: 1;
   }
 
-  &__divider {
-    width: 100%;
-    border-color: #ccc;
-    margin: 15px 0;
+  &__grid {
+    margin-top: 48px;
   }
 
-  &__subtitle {
-    text-transform: uppercase;
-    color: #6c757d;
-    font-weight: 300;
-    letter-spacing: 1px;
-  }
-
-  // CARD
   &__card {
-    border-radius: 10px;
-    background: #fff;
-    transition: transform 0.3s ease;
+    height: 100%;
+    min-height: 300px;
+    padding: 34px 30px 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 8px;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 
-    &:hover {
-      transform: translateY(-5px);
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #f5a800;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+
+    &:hover,
+    &--featured {
+      border-color: rgba(245, 168, 0, 0.38);
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.1);
+      transform: translateY(-6px);
+
+      &::before {
+        transform: scaleX(1);
+      }
     }
   }
 
-  // 🔥 Circle badge (the important part)
   &__badge {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 95px;
-    height: 95px;
-    background: #f5a800;
+    width: 96px;
+    height: 96px;
     border-radius: 50%;
+    background: #f5a800;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 18px 34px rgba(245, 168, 0, 0.26);
 
     span {
+      color: #000;
       font-size: 1.8rem;
       font-weight: 800;
-      color: #000;
     }
   }
 
-  &__text {
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: #1c1c1c;
+  &__label {
+    margin: 30px 0 10px;
+    color: #6c757d;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
-  // 📱 Responsive tuning
+  &__range {
+    margin: 0;
+    color: #111111;
+    font-size: 1.65rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  &__detail {
+    margin: 18px 0 0;
+    color: #303c44;
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  &__note {
+    margin-top: 30px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    color: #303c44;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+
+      &::after {
+        content: "";
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #f5a800;
+      }
+
+      &:last-child::after {
+        display: none;
+      }
+    }
+  }
+
   @media (max-width: 768px) {
-    &__title {
-      font-size: 2.2rem;
-      text-align: center;
+    padding: 80px 0;
+
+    &__card {
+      min-height: 260px;
     }
 
-    &__subtitle {
-      text-align: center;
-      font-size: 0.9rem;
+    &__range {
+      font-size: 1.35rem;
     }
 
-    &__text {
-      font-size: 1.4rem;
-    }
+    &__note {
+      align-items: center;
+      flex-direction: column;
+      gap: 10px;
 
-    &__badge {
-      width: 80px;
-      height: 80px;
-
-      span {
-        font-size: 1.4rem;
+      span::after {
+        display: none;
       }
     }
   }

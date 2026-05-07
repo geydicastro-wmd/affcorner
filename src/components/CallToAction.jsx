@@ -14,9 +14,14 @@ export default function CTASection() {
             xs={12}
             className="cta__content text-center text-xl-start order-2 order-xl-1"
           >
+            <p className="cta__eyebrow">Ready to partner?</p>
             <h1 className="cta__title">
               The best converting and highest paying program
             </h1>
+            <p className="cta__copy">
+              Join a brand portfolio built to help affiliates convert better,
+              retain longer, and scale with confidence.
+            </p>
 
             <Button
               as={Link}

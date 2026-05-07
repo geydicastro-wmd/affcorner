@@ -1,56 +1,72 @@
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 const plans = [
-  { percent: "20%", text: "Up to $10,000" },
-  { percent: "25%", text: "$10,001 to $50,000" },
-  { percent: "30%", text: "$50,001 or more" },
+  {
+    percent: "20%",
+    range: "Up to $10,000",
+    label: "Starter volume",
+    detail: "A strong entry tier for new partners building consistent traffic.",
+  },
+  {
+    percent: "25%",
+    range: "$10,001 to $50,000",
+    label: "Growth tier",
+    detail: "Designed for affiliates scaling campaigns across multiple brands.",
+    featured: true,
+  },
+  {
+    percent: "30%",
+    range: "$50,001 or more",
+    label: "Premium volume",
+    detail: "Higher net revenue unlocks the strongest monthly commission rate.",
+  },
 ];
 
 export default function CommissionPlans() {
   return (
     <section className="commissions">
-      
-      <Container className="text-center text-md-start pt-5">
-        <h1 className="commissions__title">
-          Commissions Plans
-        </h1>
-
-        <hr className="commissions__divider" />
-
-        <h4 className="commissions__subtitle">
-          Net Revenue (Monthly settled)
-        </h4>
-      </Container>
-
       <Container>
-        <Row className="text-center pt-5">
-          {plans.map((plan, index) => (
-            <Col md={4} xs={12} className="mb-5" key={index}>
-              
-              <Card className="commissions__card shadow-sm border-0">
-                
-                <Card.Header className="position-relative p-5 bg-transparent border-0">
-                  
-                  {/* Circle */}
-                  <div className="commissions__badge">
-                    <span>{plan.percent}</span>
-                  </div>
-
-                </Card.Header>
-
-                <Card.Body className="py-5">
-                  <h2 className="commissions__text">
-                    {plan.text}
-                  </h2>
-                </Card.Body>
-
-              </Card>
-
-            </Col>
-          ))}
+        <Row className="section-heading">
+          <Col lg={7}>
+            <p className="section-heading__eyebrow">Monthly net revenue</p>
+            <h1 className="section-heading__title">Commission Plans</h1>
+          </Col>
+          <Col lg={5}>
+            <p className="section-heading__subtitle">
+              Transparent revenue-share tiers that reward growth across our
+              sportsbook and casino brand portfolio.
+            </p>
+          </Col>
         </Row>
       </Container>
 
+      <Container>
+        <Row className="g-4 commissions__grid">
+          {plans.map((plan) => (
+            <Col md={4} xs={12} key={plan.percent}>
+              <article
+                className={`commissions__card ${
+                  plan.featured ? "commissions__card--featured" : ""
+                }`}
+              >
+                <div className="commissions__badge">
+                  <span>{plan.percent}</span>
+                </div>
+
+                <p className="commissions__label">{plan.label}</p>
+                <h2 className="commissions__range">{plan.range}</h2>
+                <p className="commissions__detail">{plan.detail}</p>
+              </article>
+            </Col>
+          ))}
+        </Row>
+
+        <div className="commissions__note">
+          <span>Revenue share</span>
+          <span>Monthly settled</span>
+          <span>Built to scale</span>
+        </div>
+      </Container>
     </section>
   );
 }

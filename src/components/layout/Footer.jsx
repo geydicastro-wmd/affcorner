@@ -1,4 +1,4 @@
-import { Container, Row, Col, Nav, Button } from "react-bootstrap";
+import { Container, Row, Col, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 
@@ -11,7 +11,7 @@ export default function Footer() {
           <Row className="align-items-center text-center text-xl-start">
             {/* Logo */}
             <Col xl={3} xs={12} className="footer__logo mb-4 mb-xl-0">
-              <Link to="/home">
+              <Link to="/">
                 <img src={Logo} alt="AffCorner" />
               </Link>
             </Col>
@@ -21,30 +21,26 @@ export default function Footer() {
               <h5 className="text-center mx-auto">Quick Links</h5>
 
               <Nav className="justify-content-center">
-                <Nav.Link as={Link} to="/frequently-asked-questions">
+                <Nav.Link as={Link} to="/frequentlyaskedquestions">
                   FAQs
                 </Nav.Link>
-                <Nav.Link as={Link} to="/contact-us">
+                <Nav.Link as={Link} to="/contact">
                   Contact Us
                 </Nav.Link>
-                <Nav.Link as={Link} to="/affiliates-brands">
+                <Nav.Link as={Link} to="/brands">
                   Affiliates Brands
                 </Nav.Link>
-                <Nav.Link as={Link} to="/about-us">
+                <Nav.Link as={Link} to="/about">
                   About Us
                 </Nav.Link>
               </Nav>
             </Col>
 
             {/* CTA */}
-            <Col xl={3} xs={12} className="footer__cta mt-4 mt-xl-0">
-              <Button
-                as={Link}
-                to="/register"
-                className="btn-outline-white"
-              >
+            <Col xl={3} xs={12} className="mt-4 mt-xl-0">
+              <Link to="/register" className="btn btn-outline-white">
                 Get Started Here
-              </Button>
+              </Link>
             </Col>
           </Row>
         </Container>
@@ -54,12 +50,8 @@ export default function Footer() {
       <div className="footer__bottom">
         <Container>
           <Row className="text-center">
-            <Col xs={12}>
-              <Link to="/terms-and-conditions">Terms and Conditions</Link>
-            </Col>
-
             <Col xs={12} className="my-3">
-              <p>© 2026 AffCorner.com. All rights reserved.</p>
+              <p>© 2026 AffCorner.com. All rights reserved. <span><Link to="/terms-and-conditions">Terms and Conditions</Link></span></p>
             </Col>
           </Row>
         </Container>

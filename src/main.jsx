@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
 import "./scss/index.scss";
 
-import Loading from "./components/loading.jsx";
+import Loading from "./components/common/loading.jsx";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));

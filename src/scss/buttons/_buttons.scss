@@ -1,21 +1,30 @@
-@use "../theme/tokens" as *;
+@use "../colors/colors" as *;
+
+.btn-yellow,
+.btn-outline-white,
+.btn-outline-yellow,
+.btn-outline-black {
+  font-size: clamp(0.78rem, 2.5vw, 1rem);
+  line-height: 1.2;
+  white-space: nowrap;
+}
 
 .btn-yellow {
-  background-color: var(--btn-yellow-bg);
-  color: var(--btn-yellow-text);
+  background-color: $yellow;
+  color: $dark;
   border: none;
-  font-weight: 600;
+  font-weight: 800;
   border-radius: 25px;
   padding: 6px 18px;
 
   &:hover {
-    background-color: #ffc831;
-    color: var(--btn-yellow-text);
+    background-color: $light-yellow;
+    color: $dark;
   }
 
   &.active {
-    background-color: #ffe260;
-    color: $black;
+    background-color: $light-yellow;
+    color: $gray;
     box-shadow: 0 0 12px rgba(197, 160, 39, 0.6);
   }
 }
@@ -24,11 +33,13 @@
   background: transparent;
   border: 1px solid $white;
   color: $white;
+  font-weight: 800;
   border-radius: 25px;
-  padding: 6px 18px;
+  padding: 5px 18px;
  
   &:hover {
-    background-color: #dfdfdf1a;
+    background-color: $white;
+    color: $black; 
   }
 
   &.active {
@@ -58,13 +69,13 @@
 
 .btn-outline-yellow {
   background: transparent;
-  border: 1px solid var(--btn-yellow-bg);
-  color: var(--btn-yellow-bg);
+  border: 1px solid $yellow;
+  color: $yellow;
   border-radius: 25px;
   padding: 6px 18px;
 
   &:hover {
-    background-color: var(--btn-yellow-bg);
+    background-color: $yellow;
     color: $black;
   }
 
@@ -75,13 +86,13 @@
 
 .btn-outline-black {
   background: transparent;
-  border: 2px solid var(--btn-outline-dark);
-  color: var(--btn-outline-dark);
+  border: 2px solid $dark;
+  color: $dark;
   border-radius: 25px;
   padding: 6px 18px;
 
   &:hover {
-    background-color: var(--btn-outline-dark);
+    background-color: $dark;
   }
 }
 
