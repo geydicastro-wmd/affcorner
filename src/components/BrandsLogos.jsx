@@ -1,4 +1,5 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import brand1 from "../assets/brands/brand1.png";
 import brand2 from "../assets/brands/brand2.png";
 import brand3 from "../assets/brands/brand3.png";
@@ -55,7 +56,11 @@ export default function BrandsLogos() {
         <Row className="g-4 brands-logos__grid">
           {brands.map((brand) => (
             <Col key={brand.name} xs={12} sm={6} lg={3}>
-              <article className="brands-logos__card">
+              <Link
+                to="/affiliates-brands"
+                className="brands-logos__card"
+                aria-label={`View ${brand.name} brand details`}
+              >
                 <div className="brands-logos__logo-shell">
                   <Image
                     src={brand.logo}
@@ -68,7 +73,7 @@ export default function BrandsLogos() {
                   <span>{brand.category}</span>
                   <span>{brand.signal}</span>
                 </div>
-              </article>
+              </Link>
             </Col>
           ))}
         </Row>
