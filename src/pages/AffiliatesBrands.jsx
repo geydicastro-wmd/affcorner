@@ -1,4 +1,4 @@
-export default function Brands() {
+export default function AffiliatesBrands() {
   return (
     <div>
       Brands

@@ -78,6 +78,13 @@ export default function BrandsSection() {
                 <h2 className="text-dark">{brand.name}</h2>
                 <p className="text-muted">{brand.url}</p>
                 <p className="text-dark">{brand.text}</p>
+                <Button
+                  as={Link}
+                  to="/affiliates-brands"
+                  className="btn-yellow brands__learn-more"
+                >
+                  Learn More
+                </Button>
               </div>
             </Col>
 

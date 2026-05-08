@@ -12,7 +12,6 @@ import CardBg04 from "../assets/products/virtualcasino_back.jpg";
 const products = [
   {
     title: "Sportsbook",
-    label: "Odds and markets",
     bg: CardBg01,
     icon: Icon01,
     features: [
@@ -22,21 +21,18 @@ const products = [
   },
   {
     title: "Live Casino",
-    label: "Real dealer action",
     bg: CardBg02,
     icon: Icon02,
     features: ["Instant browser access", "Live dealer casino tables"],
   },
   {
     title: "Horse Racing",
-    label: "Daily race coverage",
     bg: CardBg03,
     icon: Icon03,
     features: ["Daily race matchups", "Mobile betting available"],
   },
   {
     title: "Virtual Casino",
-    label: "Always-on casino",
     bg: CardBg04,
     icon: Icon04,
     features: ["Video poker and slots", "15+ table game options"],
@@ -80,7 +76,6 @@ export default function ProductsSection() {
                       className="products__icon"
                     />
 
-                    <p className="products__label">{item.label}</p>
                     <h2>{item.title}</h2>
 
                     <ul>

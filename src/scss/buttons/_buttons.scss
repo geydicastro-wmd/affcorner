@@ -1,160 +1,128 @@
 @use "../colors/colors" as *;
 
-.btn-yellow,
-.btn-outline-white,
-.btn-outline-yellow,
-.btn-outline-black {
-  font-size: clamp(0.78rem, 2.5vw, 1rem);
-  line-height: 1.2;
-  white-space: nowrap;
-}
-
-.btn-yellow {
-  background-color: $yellow;
-  color: $dark;
-  border: none;
-  font-weight: 800;
-  border-radius: 25px;
-  padding: 6px 18px;
-
-  &:hover {
-    background-color: $light-yellow;
-    color: $dark;
-  }
-
-  &.active {
-    background-color: $light-yellow;
-    color: $gray;
-    box-shadow: 0 0 12px rgba(197, 160, 39, 0.6);
-  }
-}
-
 .btn-outline-white {
   background: transparent;
   border: 1px solid $white;
-  color: $white;
-  font-weight: 800;
   border-radius: 25px;
+  color: $white;
+  font-size: clamp(0.78rem, 2.5vw, 1rem);
+  font-weight: 800;
+  line-height: 1.2;
   padding: 5px 18px;
- 
+  white-space: nowrap;
+
   &:hover {
     background-color: $white;
-    color: $black; 
-  }
-
-  &.active {
-    color: $white;
-    background: rgba(233, 233, 232, 0.2);
-    box-shadow: 0 0 12px rgba(197, 177, 111, 0.6);
-  }
-
-   &--lang {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 4px 10px;
-    margin: 0 10px;
-
-    &:hover {
-      background: var(--app-bg);
-    }
-
-    &.active {
-      background: $white;
-      color: $white;
-    }
-  
-  }
-}
-
-.btn-outline-yellow {
-  background: transparent;
-  border: 1px solid $yellow;
-  color: $yellow;
-  border-radius: 25px;
-  padding: 6px 18px;
-
-  &:hover {
-    background-color: $yellow;
     color: $black;
   }
 
   &.active {
-    background: rgba(212, 175, 55, 0.2);
+    background: rgba(233, 233, 232, 0.2);
+    box-shadow: 0 0 12px rgba(197, 177, 111, 0.6);
+    color: $white;
   }
 }
 
-.btn-outline-black {
-  background: transparent;
-  border: 2px solid $dark;
+.btn-yellow {
+  background: $yellow;
+  border: none;
+  border-radius: 50px;
   color: $dark;
-  border-radius: 25px;
-  padding: 6px 18px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 
   &:hover {
-    background-color: $dark;
+    background: $light-yellow;
+    color: $dark;
+    transform: translateY(-2px);
   }
 }
 
-.btn-rounded-black.theme-toggle {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%; 
-  padding: 3px;
-  background: #2c2c2c;
+.navbar-mobile-cta {
+  padding-inline: 12px;
+}
+
+.hero-content__btn,
+.cta__btn,
+.products__cta {
+  background: $yellow;
   border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 50px;
+  color: $dark;
+  font-weight: 800;
+  text-transform: uppercase;
+
+  &:hover {
+    background: $light-yellow;
+    color: $dark;
+    transform: translateY(-2px);
+  }
+}
+
+.hero-content__btn {
+  margin-top: 34px;
+  padding: 0.85rem 2.4rem;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    box-shadow: 0 18px 34px rgba(245, 168, 0, 0.24);
+    transform: translateY(-3px);
+  }
+}
+
+.cta__btn {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 40px;
+  padding: 14px 40px;
   transition: all 0.3s ease;
 }
 
-/* the moving circle */
-.theme-toggle .toggle-knob {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  transition: transform 0.3s ease;
+.products__cta {
+  flex: 0 0 auto;
+  padding: 12px 24px;
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
-/* move it when dark */
-.theme-toggle.dark .toggle-knob {
-  transform: translateX(30px);
-}
-.btn-rounded-black.theme-toggle:hover {
-  background-color: $gray;
-  transform: translateY(-1px);
+.brands__learn-more {
+  font-size: 0.82rem;
+  margin-top: 8px;
+  padding: 10px 22px;
 }
 
 .scroll-top-btn {
-  position: fixed;
-  bottom: 135px;
-  right: 30px;
-  z-index: 999;
-
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-
-  display: flex;
   align-items: center;
-  justify-content: center;
-
-  font-size: 18px;
-
   background-color: $gray;
   border: none;
-
+  border-radius: 50%;
+  bottom: 35px;
+  display: flex;
+  font-size: 18px;
+  height: 50px;
+  justify-content: center;
+  position: fixed;
+  right: 20px;
   transition: all 0.3s ease;
+  width: 50px;
+  z-index: 999;
 
   &:hover {
-    transform: translateY(-3px);
-    color: $black;
     background-color: $light-body;
+    color: $black;
+    transform: translateY(-3px);
+  }
+}
+
+@media (max-width: 768px) {
+  .cta__btn {
+    font-size: 1rem;
+    padding: 12px 28px;
+  }
+
+  .hero-content__btn {
+    margin-top: 26px;
+    padding: 0.75rem 1.8rem;
   }
 }

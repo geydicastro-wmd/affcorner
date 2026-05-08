@@ -1,5 +1,4 @@
 .footer {
-  font-family: "Inter", sans-serif;
   color: #fff;
 
   // 🔥 Fondo principal con patrón + glow
@@ -57,10 +56,13 @@
     .nav {
       gap: 10px;
       flex-wrap: wrap;
+      max-width: 100%;
 
       a {
         color: #ddd;
+        flex: 0 1 auto;
         font-size: 0.95rem;
+        white-space: normal;
         transition: all 0.3s ease;
 
         &:hover {
@@ -125,6 +127,12 @@
 
     &__links .nav {
       justify-content: center;
+      row-gap: 8px;
+
+      a {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
     }
   }
 }

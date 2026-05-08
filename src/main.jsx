@@ -2,13 +2,17 @@ import { StrictMode, lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
+import "@fontsource/lato/400.css";
+import "@fontsource/lato/700.css";
+import "@fontsource/lato/900.css";
 import "./scss/index.scss";
 
 import Loading from "./components/common/loading.jsx";
+import AffiliatesBrands from "./pages/AffiliatesBrands";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
-const Brands = lazy(() => import("./pages/Brands"));
+const Brands = lazy(() => import("./pages/AffiliatesBrands"));
 const Commissions = lazy(() => import("./pages/Commissions"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Frequentlyaskedquestions = lazy(
@@ -26,7 +30,7 @@ createRoot(document.getElementById("root")).render(
             <Route path="/" element={<App />}>
               <Route index element={<Home />} />
               <Route path="about" element={<About />} />
-              <Route path="brands" element={<Brands />} />
+              <Route path="affiliates-brands" element={<AffiliatesBrands />} />
               <Route path="commissions" element={<Commissions />} />
               <Route path="contact" element={<Contact />} />
               <Route path="frequentlyaskedquestions" element={<Frequentlyaskedquestions />} />

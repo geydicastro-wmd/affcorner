@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
+import { createElement, useEffect, useState } from "react";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { FaHome, FaInfoCircle, FaQuestionCircle } from "react-icons/fa";
+import { MdHandshake, MdLocalOffer, MdMail } from "react-icons/md";
+import { RiMoneyDollarCircleFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 
 const navItems = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
-  { label: "Brands", to: "/brands" },
-  { label: "Join", to: "/join" },
-  { label: "Commissions", to: "/commissions" },
-  { label: "Contact", to: "/contact" },
-  { label: "FAQs", to: "/frequentlyaskedquestions" },
+  { label: "Home", to: "/", icon: FaHome },
+  { label: "About", to: "/about", icon: FaInfoCircle },
+  { label: "Brands", to: "/affiliates-brands", icon: MdLocalOffer },
+  { label: "Join", to: "/join", icon: MdHandshake },
+  { label: "Commissions", to: "/commissions", icon: RiMoneyDollarCircleFill },
+  { label: "Contact", to: "/contact", icon: MdMail },
+  { label: "FAQs", to: "/frequentlyaskedquestions", icon: FaQuestionCircle },
 ];
 
 export default function Header() {
@@ -79,7 +82,7 @@ export default function Header() {
         id="main-menu"
         show={showMenu}
         onHide={closeMenu}
-        placement="end"
+        placement="start"
         className="offcanvas-custom text-bg-dark"
       >
         <Offcanvas.Header closeButton closeVariant="white">
@@ -90,19 +93,23 @@ export default function Header() {
 
         <Offcanvas.Body>
           <Nav className="navbar-menu flex-column">
-            {navItems.map(({ label, to }) => (
+            {navItems.map(({ label, to, icon: Icon }) => (
               <Nav.Link key={to} as={Link} to={to} onClick={closeMenu}>
+                {createElement(Icon, {
+                  "aria-hidden": true,
+                  className: "offcanvas-custom__icon",
+                })}
                 {label}
               </Nav.Link>
             ))}
           </Nav>
 
-          <div className="d-grid gap-2 mt-4">
+          <div className="offcanvas-custom__actions">
             <Link to="/register" className="btn btn-outline-white" onClick={closeMenu}>
-              REGISTER NOW
+              Register
             </Link>
             <Link to="/login" className="btn btn-outline-white" onClick={closeMenu}>
-              LOGIN
+              Login
             </Link>
           </div>
         </Offcanvas.Body>

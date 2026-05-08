@@ -24,3 +24,12 @@
     transform: translate(0, 0) scale(1);
   }
 }
+
+@media (max-width: 768px) {
+  .reveal {
+    &--left,
+    &--right {
+      transform: translateY(32px);
+    }
+  }
+}

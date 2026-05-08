@@ -7,8 +7,8 @@ export default function Footer() {
     <footer className="footer">
       {/* Top Section */}
       <div className="footer__top">
-        <Container>
-          <Row className="align-items-center text-center text-xl-start">
+        <Container fluid >
+          <Row className="align-items-center text-center">
             {/* Logo */}
             <Col xl={3} xs={12} className="footer__logo mb-4 mb-xl-0">
               <Link to="/">

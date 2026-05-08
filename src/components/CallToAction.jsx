@@ -1,8 +1,11 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import useReveal from "../hooks/useReveal";
 import CtaImage from "../assets/cta_sp.png";
 
 export default function CTASection() {
+  useReveal();
+
   return (
     <section className="cta">
       <Container fluid>
@@ -12,7 +15,8 @@ export default function CTASection() {
           <Col
             xl={5}
             xs={12}
-            className="cta__content text-center text-xl-start order-2 order-xl-1"
+            className="cta__content text-center text-xl-start order-2 order-xl-1 reveal reveal--left"
+            data-reveal
           >
             <p className="cta__eyebrow">Ready to partner?</p>
             <h1 className="cta__title">
@@ -25,7 +29,7 @@ export default function CTASection() {
 
             <Button
               as={Link}
-              to="/register-now"
+              to="/register"
               className="cta__btn"
             >
               Register Now
@@ -36,7 +40,8 @@ export default function CTASection() {
           <Col
             xl={5}
             xs={12}
-            className="cta__image text-center order-1 order-xl-2"
+            className="cta__image text-center order-1 order-xl-2 reveal reveal--right"
+            data-reveal
           >
             <img src={CtaImage} alt="Paying Program" />
           </Col>
