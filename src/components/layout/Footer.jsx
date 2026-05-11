@@ -20,14 +20,14 @@ export default function Footer() {
             <Col xl={6} xs={12} className="footer__links">
               <h5 className="text-center mx-auto">Quick Links</h5>
 
-              <Nav className="justify-content-center">
+              <Nav className="justify-content-center text-uppercase fw-bold small">
                 <Nav.Link as={Link} to="/frequentlyaskedquestions">
                   FAQs
                 </Nav.Link>
                 <Nav.Link as={Link} to="/contact">
                   Contact Us
                 </Nav.Link>
-                <Nav.Link as={Link} to="/brands">
+                <Nav.Link as={Link} to="/affiliates-brands">
                   Affiliates Brands
                 </Nav.Link>
                 <Nav.Link as={Link} to="/about">
@@ -38,7 +38,7 @@ export default function Footer() {
 
             {/* CTA */}
             <Col xl={3} xs={12} className="mt-4 mt-xl-0">
-              <Link to="/register" className="btn btn-outline-white">
+              <Link to="/register" className="btn btn-outline-white text-uppercase">
                 Get Started Here
               </Link>
             </Col>

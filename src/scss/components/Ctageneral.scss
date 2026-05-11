@@ -1,0 +1,59 @@
+.affiliate-cta {
+  .cta-image {
+    max-height: 700px;
+    object-fit: contain;
+  }
+
+  &__contact {
+    position: relative;
+    background:
+      linear-gradient(180deg, rgba(5, 10, 20, 0.2), rgba(5, 10, 20, 0.2)),
+      var(--cta-contact-bg) center / cover fixed;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 50% -12%, rgba(14, 10, 2, 0.2), transparent 34%),
+        radial-gradient(ellipse at 16% 118%, rgba(255, 255, 255, 0.08), transparent 36%),
+        radial-gradient(ellipse at 86% 82%, rgba(86, 89, 255, 0), transparent 30%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: auto -51% -9% -8%;
+      height: 72%;
+      background:rgba(87, 129, 253, 0.02);
+      border-radius: 214% 80% 0 0;
+      filter: blur(1px);
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__contact-card {
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.15) !important;
+      border-color: rgba(245, 168, 0, 0.46);
+      transform: translateY(-4px);
+    }
+  }
+}
+
+@media (max-width: 991.98px) {
+  .affiliate-cta__contact {
+    background-attachment: scroll;
+  }
+}

@@ -1,0 +1,73 @@
+.why-join-hero {
+  background:
+    radial-gradient(circle at 15% 85%, rgba(255, 193, 7, 0.28), transparent 30%),
+    radial-gradient(circle at 85% 20%, rgba(255, 193, 7, 0.16), transparent 28%),
+    linear-gradient(135deg, #050505 0%, #111 48%, #211806 100%);
+
+  .min-vh-75 {
+    min-height: 75vh;
+  }
+
+  .why-join-visual {
+    max-width: 620px;
+    min-height: 520px;
+    display: grid;
+    place-items: center;
+  }
+
+  .hero-icons {
+    inset: 0;
+    margin: auto;
+    opacity: 0.2;
+    transform: scale(1.05);
+    animation: floatingIcons 7s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .hero-person {
+    z-index: 2;
+    max-height: 520px;
+    object-fit: contain;
+    filter: drop-shadow(0 28px 40px rgba(0, 0, 0, 0.55));
+  }
+
+  .bg-opacity-10 {
+    backdrop-filter: blur(10px);
+  }
+
+  @keyframes floatingIcons {
+    0% {
+      transform: scale(1.05) translate3d(0, 0, 0) rotate(0deg);
+    }
+
+    25% {
+      transform: scale(1.06) translate3d(8px, -6px, 0) rotate(1deg);
+    }
+
+    50% {
+      transform: scale(1.05) translate3d(0, -12px, 0) rotate(0deg);
+    }
+
+    75% {
+      transform: scale(1.06) translate3d(-8px, -5px, 0) rotate(-1deg);
+    }
+
+    100% {
+      transform: scale(1.05) translate3d(0, 0, 0) rotate(0deg);
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    .min-vh-75 {
+      min-height: auto;
+    }
+
+    .why-join-visual {
+      min-height: 360px;
+    }
+
+    .hero-person {
+      max-height: 360px;
+    }
+  }
+}

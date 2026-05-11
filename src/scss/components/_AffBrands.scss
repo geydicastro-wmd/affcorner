@@ -1,0 +1,49 @@
+.brands-hero {
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255, 193, 7, 0.28), transparent 30%),
+    radial-gradient(circle at 90% 20%, rgba(255, 193, 7, 0.14), transparent 28%),
+    linear-gradient(135deg, #050505 0%, #111 50%, #211806 100%);
+
+  .min-vh-75 {
+    min-height: 75vh;
+  }
+
+  .brands-product-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
+  }
+
+  .product-img {
+    max-height: 340px;
+    object-fit: contain;
+    filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.45));
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 3rem;
+  }
+
+  .carousel-indicators {
+    position: static;
+    margin: 2rem 0 0;
+
+    button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    .min-vh-75 {
+      min-height: auto;
+    }
+
+    .product-img {
+      max-height: 260px;
+    }
+  }
+}

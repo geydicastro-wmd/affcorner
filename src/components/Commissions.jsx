@@ -22,23 +22,27 @@ const plans = [
   },
 ];
 
-export default function CommissionPlans() {
+export default function CommissionPlans({ showHeading = true }) {
   return (
-    <section className="commissions">
-      <Container>
-        <Row className="section-heading">
-          <Col lg={7}>
-            <p className="section-heading__eyebrow">Monthly net revenue</p>
-            <h1 className="section-heading__title">Commission Plans</h1>
-          </Col>
-          <Col lg={5}>
-            <p className="section-heading__subtitle">
-              Transparent revenue-share tiers that reward growth across our
-              sportsbook and casino brand portfolio.
-            </p>
-          </Col>
-        </Row>
-      </Container>
+    <section
+      className={`commissions ${!showHeading ? "commissions--no-heading" : ""}`}
+    >
+      {showHeading && (
+        <Container>
+          <Row className="section-heading">
+            <Col lg={7}>
+              <p className="section-heading__eyebrow">Monthly net revenue</p>
+              <h1 className="section-heading__title">Commission Plans</h1>
+            </Col>
+            <Col lg={5}>
+              <p className="section-heading__subtitle">
+                Transparent revenue-share tiers that reward growth across our
+                sportsbook and casino brand portfolio.
+              </p>
+            </Col>
+          </Row>
+        </Container>
+      )}
 
       <Container>
         <Row className="g-4 commissions__grid">

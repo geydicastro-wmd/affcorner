@@ -1,10 +1,10 @@
 import { Carousel, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import BetPhoenixLogo from "../assets/icons_logos/icons-01.png";
-import SkybookLogo from "../assets/icons_logos/icons-logos-03.png";
-import BetmaniaLogo from "../assets/icons_logos/icons-logos-02.png";
-import BogartLogo from "../assets/icons_logos/icons-logos-04.png";
+import BetPhoenixLogo from "../../assets/icons_logos/icons-01.png";
+import SkybookLogo from "../../assets/icons_logos/icons-logos-03.png";
+import BetmaniaLogo from "../../assets/icons_logos/icons-logos-02.png";
+import BogartLogo from "../../assets/icons_logos/icons-logos-04.png";
 
 const brands = [
   {
@@ -33,13 +33,13 @@ export default function BrandPeekSlider() {
   return (
     <section className="brand-peek" aria-label="Brand quick links">
       <Container>
-        <Row className="align-items-center justify-content-center g-3">
-          <Col md={6} xs={12} className="text-center text-md-end">
+        <Row className="align-items-center justify-content-center py-5">
+          <Col xs={12} className="text-center">
             <p className="brand-peek__eyebrow">Checkout our brands</p>
             <h2 className="brand-peek__title">Take a quick look</h2>
           </Col>
 
-          <Col md={4} xs={12} className="text-center text-md-start">
+          <Col xs={12} className="text-center mt-3">
             <Carousel
               fade
               controls={false}

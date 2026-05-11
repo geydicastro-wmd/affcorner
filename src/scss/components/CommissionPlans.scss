@@ -26,6 +26,14 @@
     margin-top: 48px;
   }
 
+  &--no-heading {
+    padding-top: 72px;
+
+    .commissions__grid {
+      margin-top: 0;
+    }
+  }
+
   &__card {
     height: 100%;
     min-height: 300px;

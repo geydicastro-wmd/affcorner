@@ -31,10 +31,14 @@ const reasons = [
 export default function ReasonsSection() {
   return (
     <section className="reason-home">
-      <Container className="pt-5 mt-3 text-center text-md-start">
-        <h1 className="reason-home__title">Reasons to Join</h1>
-        <hr />
-        <h4 className="reason-home__subtitle">To our brands</h4>
+
+      <Container className="text-center text-md-start">
+        <Row className="section-heading">
+          <Col lg={7}>
+            <p className="section-heading__eyebrow">Partner advantages</p>
+            <h1 className="section-heading__title">Reasons to Join</h1>
+          </Col>
+        </Row>
       </Container>
 
       <Container className="reason-home__cards-wrapper">

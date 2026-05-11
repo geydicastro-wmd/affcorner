@@ -6,7 +6,7 @@ import ProductsSection from "../components/Products";
 import Reasons from "../components/Reasons";
 import CommissionsPlans from "../components/Commissions";
 import CallToAction from "../components/CallToAction";
-import BrandPeekSlider from "../components/BrandPeekSlider";
+import BrandPeekSlider from "../components/common/BrandPeekSlider";
 
 export default function Home() {
   return (
