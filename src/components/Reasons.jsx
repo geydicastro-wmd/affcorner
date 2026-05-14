@@ -65,12 +65,6 @@ export default function ReasonsSection() {
             <p className="section-heading__eyebrow">Partner advantages</p>
             <h1 className="section-heading__title">Reasons to Join</h1>
           </Col>
-          <Col lg={5}>
-            <p className="section-heading__subtitle">
-              Built for affiliates who need trusted brands, reliable payouts,
-              and support that helps campaigns keep moving.
-            </p>
-          </Col>
         </Row>
       </Container>
 

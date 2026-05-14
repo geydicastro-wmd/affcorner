@@ -57,7 +57,7 @@ export default function HeroSlider() {
             <div className="hero-content">
               <p className="hero-content__eyebrow">{slide.eyebrow}</p>
               <h2>{slide.title}</h2>
-              <Button as={Link} to="/register" variant="warning" size="lg" className="hero-content__btn">
+              <Button as={Link} to="/register-now" variant="warning" size="lg" className="hero-content__btn">
                 JOIN NOW!
               </Button>
             </div>

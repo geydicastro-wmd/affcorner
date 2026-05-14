@@ -35,7 +35,7 @@ export default function Join() {
               <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
                 <Button
                   as={Link}
-                  to="/register"
+                  to="/register-now"
                   variant="warning"
                   size="lg"
                   className="rounded-pill fw-bold text-uppercase px-4 d-inline-flex align-items-center justify-content-center gap-2"

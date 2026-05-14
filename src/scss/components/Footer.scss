@@ -1,14 +1,14 @@
 .footer {
   color: #fff;
 
-  // 🔥 Fondo principal con patrón + glow
   &__top {
     position: relative;
-    padding: 60px 0;
-    background: radial-gradient(circle at center, #111 0%, #000 100%);
     overflow: hidden;
+    padding: 64px 0 52px;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 38%),
+      radial-gradient(circle at center, #111 0%, #000 100%);
 
-    // dots pattern
     &::before {
       content: "";
       position: absolute;
@@ -19,17 +19,16 @@
       pointer-events: none;
     }
 
-    // glow effect
     &::after {
       content: "";
       position: absolute;
-      width: 500px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(255, 200, 0, 0.15), transparent 70%);
-      top: 20%;
+      width: min(1050px, 90vw);
+      height: 240px;
+      background: radial-gradient(circle, rgba(255, 200, 0, 0.08), transparent 80%);
+      top: 35%;
       left: 50%;
       transform: translateX(-50%);
-      filter: blur(40px);
+      filter: blur(44px);
       pointer-events: none;
     }
 
@@ -39,71 +38,141 @@
     }
   }
 
-  // LOGO
-  &__logo img {
-    max-width: 220px;
+  &__grid {
+    align-items: flex-start;
   }
 
-  // LINKS
-  &__links {
-    h5 {
-      color: #ffc107;
-      font-weight: 700;
-      font-size: 1.5rem;
-      margin-bottom: 15px;
+  &__brand,
+  &__links,
+  &__platform {
+    min-width: 0;
+  }
+
+  &__brand {
+    img {
+      display: block;
+      max-width: 220px;
+      height: auto;
+      margin-bottom: 22px;
     }
 
+    p {
+      max-width: 330px;
+      margin: 0 0 24px;
+      color: #cfcfcf;
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 22px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 999px;
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      border-color: #ffc107;
+      background: #ffc107;
+      color: #000;
+    }
+  }
+
+  h5 {
+    position: relative;
+    width: fit-content;
+    margin: 4px 0 18px;
+    padding-bottom: 10px;
+    color: #ffc107;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 42px;
+      height: 2px;
+      border-radius: 999px;
+      background: #ffc107;
+    }
+  }
+
+  &__links {
     .nav {
-      gap: 10px;
-      flex-wrap: wrap;
-      max-width: 100%;
+      gap: 4px;
+    }
 
-      a {
-        color: #ddd;
-        flex: 0 1 auto;
-        font-size: 0.95rem;
-        white-space: normal;
-        transition: all 0.3s ease;
+    a {
+      position: relative;
+      width: fit-content;
+      padding: 5px 0;
+      color: #d7d7d7;
+      font-size: 0.95rem;
+      line-height: 1.35;
+      text-decoration: none;
+      transition: color 0.25s ease, transform 0.25s ease;
 
-        &:hover {
-          color: #fff;
-          text-decoration: underline;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 2px;
+        width: 100%;
+        height: 1px;
+        background: currentColor;
+        opacity: 0;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+      }
+
+      &:hover {
+        color: #fff;
+        transform: translateX(4px);
+
+        &::before {
+          opacity: 0.65;
+          transform: scaleX(1);
         }
       }
     }
   }
 
-  // CTA BUTTON
-  &__cta {
-    a {
-      border: 2px solid #fff;
-      background: transparent;
-      color: #fff;
-      padding: 10px 25px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      border-radius: 50px;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: all 0.3s ease;
-
-      &:hover {
-        background: #fff;
-        color: #000;
-      }
+  &__platform {
+    p {
+      margin: 0;
+      color: #cfcfcf;
+      font-size: 0.95rem;
+      line-height: 1.7;
     }
   }
 
-  // BOTTOM BAR
   &__bottom {
     background: #000;
-    padding: 20px 0;
-    font-size: 0.85rem;
+    padding: 18px 0;
     color: #888;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 
     a {
-      color: #888;
+      color: #aaa;
       text-decoration: none;
+      transition: color 0.25s ease;
 
       &:hover {
         color: #fff;
@@ -115,24 +184,33 @@
     }
   }
 
-  // 📱 Responsive tweaks
-  @media (max-width: 768px) {
+  @media (max-width: 767.98px) {
     &__top {
+      padding: 48px 0 40px;
       text-align: center;
     }
 
-    &__cta {
-      margin-top: 20px;
+    &__brand {
+      img {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      p {
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
 
-    &__links .nav {
-      justify-content: center;
-      row-gap: 8px;
+    h5,
+    &__links a {
+      margin-right: auto;
+      margin-left: auto;
+    }
 
-      a {
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-      }
+    h5::after {
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 }

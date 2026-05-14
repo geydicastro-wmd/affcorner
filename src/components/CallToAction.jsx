@@ -29,7 +29,7 @@ export default function CTASection() {
 
             <Button
               as={Link}
-              to="/register"
+              to="/register-now"
               className="cta__btn"
             >
               Register Now

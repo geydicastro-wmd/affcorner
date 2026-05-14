@@ -59,7 +59,7 @@ export default function Header() {
           </Nav>
 
           <div className="navbar-actions d-none d-lg-flex gap-2">
-            <Link to="/register" className="btn btn-outline-white">
+            <Link to="/register-now" className="btn btn-outline-white">
               REGISTER NOW
             </Link>
             <Link to="/login" className="btn btn-outline-white">
@@ -68,7 +68,7 @@ export default function Header() {
           </div>
 
           <div className="navbar-mobile-actions d-flex d-lg-none align-items-center gap-2 ms-auto">
-            <Link to="/register" className="btn btn-outline-white navbar-mobile-cta">
+            <Link to="/register-now" className="btn btn-outline-white navbar-mobile-cta">
               REGISTER
             </Link>
             <Link to="/login" className="btn btn-outline-white navbar-mobile-cta">
@@ -105,7 +105,7 @@ export default function Header() {
           </Nav>
 
           <div className="offcanvas-custom__actions">
-            <Link to="/register" className="btn btn-outline-white" onClick={closeMenu}>
+            <Link to="/register-now" className="btn btn-outline-white" onClick={closeMenu}>
               Register
             </Link>
             <Link to="/login" className="btn btn-outline-white" onClick={closeMenu}>
