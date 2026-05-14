@@ -34,12 +34,6 @@ export default function CommissionPlans({ showHeading = true }) {
               <p className="section-heading__eyebrow">Monthly net revenue</p>
               <h1 className="section-heading__title">Commission Plans</h1>
             </Col>
-            <Col lg={5}>
-              <p className="section-heading__subtitle">
-                Transparent revenue-share tiers that reward growth across our
-                sportsbook and casino brand portfolio.
-              </p>
-            </Col>
           </Row>
         </Container>
       )}

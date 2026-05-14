@@ -49,12 +49,6 @@ export default function ProductsSection() {
             <p className="section-heading__eyebrow">Product coverage</p>
             <h1 className="section-heading__title">Products Offered</h1>
           </Col>
-          <Col lg={5}>
-            <p className="section-heading__subtitle">
-              Sportsbook, casino, racing, and virtual products give partners
-              multiple ways to convert and retain players.
-            </p>
-          </Col>
         </Row>
       </Container>
 

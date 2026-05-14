@@ -2,8 +2,8 @@
   position: relative;
   padding: 96px 0;
   background:
-    radial-gradient(circle at 14% 18%, rgba(245, 168, 0, 0.18), transparent 28%),
-    radial-gradient(circle at 88% 72%, rgba(245, 168, 0, 0.1), transparent 30%),
+    radial-gradient(circle at 14% 18%, #1a2c4f, transparent 28%),
+    radial-gradient(circle at 88% 72%, #1a2c4f, transparent 30%),
     linear-gradient(135deg, #101a31 0%, #1a2c4f 48%, #090d17 100%);
   overflow: hidden;
 
@@ -11,9 +11,9 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 22px 22px;
-    opacity: 0.34;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.295) 1px, transparent 1px);
+    background-size: 15px 15px;
+    opacity: 0.4;
     mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 84%, transparent);
     pointer-events: none;
   }

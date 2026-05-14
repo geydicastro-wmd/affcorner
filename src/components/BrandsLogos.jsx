@@ -45,12 +45,6 @@ export default function BrandsLogos() {
             <p className="section-heading__eyebrow">Affiliate brand portfolio</p>
             <h1 className="section-heading__title">Our Brands</h1>
           </Col>
-          <Col lg={5}>
-            <p className="section-heading__subtitle">
-              A focused network of sportsbook and casino brands built for
-              acquisition, retention, and long-term player value.
-            </p>
-          </Col>
         </Row>
 
         <Row className="g-4 brands-logos__grid">

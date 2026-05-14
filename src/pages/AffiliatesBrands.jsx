@@ -1,116 +1,699 @@
 import CTAGeneral from "../components/common/CTAGeneral";
 import BrandPeekSlider from "../components/common/BrandPeekSlider";
 
-import { Carousel, Container, Row, Col, Button } from "react-bootstrap";
+import { Carousel, Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
+import {
+  FaDice,
+  FaCircleDot,
+  FaTicket,
+  FaMoneyBillTransfer,
+  FaCreditCard,
+  FaArrowUpRightFromSquare,
+} from "react-icons/fa6";
+import { TbPlayCard } from "react-icons/tb";
+import { MdOutlineSportsFootball } from "react-icons/md";
 
 import VirtualCasinoImg from "../assets/aff-header/virtualcasino_aff_500x500.png";
 import HorseRacingImg from "../assets/aff-header/horseracing_aff_500x500.png";
 import LiveCasinoImg from "../assets/aff-header/live-casino_aff_500x500.png";
 import SportsbookImg from "../assets/aff-header/sportsbook_aff_500x500.png";
 
+import BogartMainImg from "../assets/pages_internal/img_bc.jpg";
+import BogartSecondImg from "../assets/pages_internal/2_bc.jpg";
+
+import BPMainImg from "../assets/pages_internal/1_bp.jpg";
+import BPSecondImg from "../assets/pages_internal/2_bp.jpg";
+
+import SKMainImg from "../assets/pages_internal/1_sk.jpg";
+import SKSecondImg from "../assets/pages_internal/2_sk.jpg";
+
+import BMMainImg from "../assets/pages_internal/1_bm.jpg";
+import BMSecondImg from "../assets/pages_internal/2_bm.jpg";
+
 const products = [
   {
     title: "Sportsbook",
     image: SportsbookImg,
-    description:
-      "Promote high-performing sportsbook brands built for serious players and long-term affiliate value.",
   },
   {
     title: "Live Casino",
     image: LiveCasinoImg,
-    description:
-      "Connect players with immersive live dealer experiences from trusted casino brands.",
   },
   {
     title: "Virtual Casino",
     image: VirtualCasinoImg,
-    description:
-      "Offer exciting virtual casino products designed to keep players engaged.",
   },
   {
     title: "Horse Racing",
     image: HorseRacingImg,
-    description:
-      "Reach racing fans with products that complement strong sportsbook traffic.",
   },
 ];
 
 export default function AffiliatesBrands() {
   return (
     <div>
-       <section className="brands-hero text-light position-relative overflow-hidden pt-5">
-      <Container className="position-relative py-5">
-        <Row className="align-items-center justify-content-between min-vh-75 g-5">
-          <Col lg={6} className="text-center text-lg-start">
-            <span className="text-warning fw-bold text-uppercase small">
-              Check Our Products
-            </span>
+      <section className="brands-hero text-light position-relative overflow-hidden pt-5">
+        <Container className="position-relative py-5">
+          <Row className="align-items-center justify-content-between min-vh-75 g-5">
+            <Col lg={6} className="text-center text-lg-start">
+              <span className="text-warning fw-bold text-uppercase small">
+                Check Our Products
+              </span>
 
-            <h1 className="display-3 fw-bold mt-3 mb-4">
-              Brands built to convert affiliate traffic.
-            </h1>
+              <h1 className="display-3 fw-bold mt-3 mb-4">
+                Brands built to convert affiliate traffic.
+              </h1>
 
-            <p className="lead text-light mb-4">
-              Explore our sportsbook and casino products, backed by established
-              brands affiliates can promote with confidence.
-            </p>
+              <p className="lead text-light mb-4">
+                Explore our sportsbook and casino products, backed by
+                established brands affiliates can promote with confidence.
+              </p>
 
-            <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+              <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+                <Button
+                  as={Link}
+                  to="/register"
+                  variant="warning"
+                  size="lg"
+                  className="rounded-pill fw-bold text-uppercase px-4 d-inline-flex align-items-center justify-content-center gap-2"
+                >
+                  Register Now <FaArrowRight />
+                </Button>
+
+                <Button
+                  as={Link}
+                  to="/commissions"
+                  variant="outline-light"
+                  size="lg"
+                  className="rounded-pill fw-bold text-uppercase px-4"
+                >
+                  View Commissions
+                </Button>
+              </div>
+            </Col>
+
+            <Col lg={5}>
+              <div className="brands-product-card rounded-5 p-4 p-lg-5">
+                <Carousel
+                  fade
+                  controls
+                  interval={2000}
+                  pause="hover"
+                  className="brands-product-carousel"
+                >
+                  {products.map((product) => (
+                    <Carousel.Item key={product.title}>
+                      <div className="text-center">
+                        <img
+                          src={product.image}
+                          alt={product.title}
+                          className="img-fluid product-img mb-4"
+                          width="500"
+                          height="500"
+                        />
+
+                        <h3 className="fw-bold mb-3">{product.title}</h3>
+                      </div>
+                    </Carousel.Item>
+                  ))}
+                </Carousel>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      <section className="affiliate-brand-details py-5">
+        <Container className="text-center mb-5">
+          <span className="text-warning fw-bold text-uppercase small">
+            Our Partners
+          </span>
+
+          <h2 className="display-4 fw-bold mt-2 mb-0">Affiliate Brands</h2>
+        </Container>
+
+        {/* BetPhoenix Section */}
+        <Container id="betphoenix">
+          <Row className="align-items-center justify-content-center g-2 g-lg-5">
+            <Col lg={5}>
+              <span className="text-warning fw-bold text-uppercase small">
+                Affiliate Brand
+              </span>
+
+              <h2 className="display-4 fw-bold">Betphoenix</h2>
+
+              <p className="text-body-secondary">
+                Established in 2006, <strong>BetPhoenix.ag</strong> has built a
+                strong reputation in the online gaming industry. It offers a
+                comprehensive platform catering to sports betting, virtual and
+                live casino gaming, horse racing, and lottery.
+              </p>
+
+              <img
+                src={BPMainImg}
+                alt="Betphoenix page view"
+                className="img-fluid rounded-4 shadow-sm"
+              />
+            </Col>
+
+            <Col lg={6}>
+              <Row className="g-3 mt-0 mt-lg-4">
+                <Col md={6}>
+                  <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
+                    <h4 className="fw-bold mb-2">
+                      <MdOutlineSportsFootball /> Sportsbook
+                    </h4>
+                    <p className="small text-body-secondary mb-0">
+                      Step into the action at Bogart Casino’s Virtual Casino,
+                      where over 1000 slots, thrilling fish and shooting games,
+                      fast-paced crash games, and classic table favorites await.
+                      There’s something for every player—anytime, anywhere.
+                    </p>
+                  </div>
+                </Col>
+                <Col md={6}>
+                  <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
+                    <h4 className="fw-bold mb-2">
+                      <FaDice /> Virtual Casino
+                    </h4>
+                    <p className="small text-body-secondary mb-0">
+                      Step into the action at Bogart Casino’s Virtual Casino,
+                      where over 1000 slots, thrilling fish and shooting games,
+                      fast-paced crash games, and classic table favorites await.
+                      There’s something for every player—anytime, anywhere.
+                    </p>
+                  </div>
+                </Col>
+                <Col md={6}>
+                  <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
+                    <h4 className="fw-bold mb-2">
+                      <TbPlayCard /> Live Casino
+                    </h4>
+                    <p className="small text-body-secondary mb-0">
+                      Experience the thrill of real-time gaming at Bogart
+                      Casino’s Live Casino. Play live blackjack, baccarat,
+                      roulette, sicbo, and more—streamed straight to your screen
+                      with professional dealers and nonstop action.
+                    </p>
+                  </div>
+                </Col>
+                <Col md={6}>
+                  <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
+                    <h4 className="fw-bold mb-2">
+                      <FaTicket /> Lottery
+                    </h4>
+                    <p className="small text-body-secondary mb-0">
+                      Fans of lottery games can enjoy an extra thrill with our
+                      selection of options, including the popular Daily 3 and
+                      Daily 4 draws.
+                    </p>
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+
+          <Row className="align-items-center justify-content-center g-3 g-lg-5 mt-0">
+            <Col lg={6}>
+              <p className="fw-medium">
+                With some of the highest bonuses in the industry,{" "}
+                <strong>BetPhoenix.ag </strong> continues to attract players
+                seeking generous promotions and a reliable gaming experience.
+              </p>
+
+              <Row className="g-3">
+                <Col md={4}>
+                  <div className="h-100 p-4 rounded-4 border border-info">
+                    <h4 className="fw-bold mb-3">Deposit Options:</h4>
+                    <ul className="mb-0">
+                      <li>KriPay (Google Pay & Apple Pay)</li>
+                      <li>Send Bitcoin with Cash App</li>
+                      <li>Bitcoin, Ethereum, Litecoin, Tether (USDT), USDC</li>
+                      <li>Zpay</li>
+                      <li>Boss Revolution</li>
+                      <li>Person to Person</li>
+                      <li>Credit Cards</li>
+                    </ul>
+                  </div>
+                </Col>
+
+                <Col md={4}>
+                  <div className="h-100 p-4 rounded-4 border border-info">
+                    <h4 className="fw-bold mb-3">Payout Options:</h4>
+                    <ul className="mb-0">
+                      <li>Tether (USDT)</li>
+                      <li>Bitcoin</li>
+                      <li>Person to Person</li>
+                      <li>Checks</li>
+                    </ul>
+                  </div>
+                </Col>
+
+                <Col md={4}>
+                  <div className="h-100 p-4 rounded-4 border border-info">
+                    <h4 className="fw-bold mb-3">Types of Wagers:</h4>
+                    <p className="mb-0">
+                      Straight Bets, Parlays, Teasers, If Bets, Reverses, Action
+                      Points, Props/Futures, Open Wagers, Live Wagering.
+                    </p>
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+
+            <Col lg={5} className="justify-content-center text-center">
+              <img
+                src={BPSecondImg}
+                alt="Bogart Casino promotions view"
+                className="img-fluid rounded-4 shadow-sm"
+              />
+
               <Button
-                as={Link}
-                to="/register"
+                href="https://affiliate2.betphoenix.ag/login"
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="warning"
-                size="lg"
-                className="rounded-pill fw-bold text-uppercase px-4 d-inline-flex align-items-center justify-content-center gap-2"
+                className="rounded-pill fw-bold text-uppercase px-4 mt-4"
               >
-                Register Now <FaArrowRight />
+                Visit BetPhoenix Affiliate Platform 
               </Button>
+            </Col>
+          </Row>
+        </Container>
+
+        {/* Skybook Section */}
+        <Container id="skybook" className="mt-5">
+          <Row className="align-items-center justify-content-center g-2 g-lg-5">
+            <Col lg={5}>
+              <span className="text-warning fw-bold text-uppercase small">
+                Affiliate Brand
+              </span>
+
+              <h2 className="display-4 fw-bold">Skybook</h2>
+
+              <p className="text-body-secondary">
+                <strong>Skybook.ag</strong> is a trusted online betting platform
+                that’s been serving players since 1997. Known as the “Home of
+                the Bettor,” it offers a comprehensive suite of betting options
+                tailored to every gambling enthusiast.
+              </p>
+
+              <img
+                src={SKMainImg}
+                alt="Skybook page view"
+                className="img-fluid rounded-4 shadow-sm"
+              />
+            </Col>
+
+            <Col lg={6}>
+              <Row className="g-3 mt-0 mt-lg-4">
+                <Col md={6}>
+                  <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
+                    <h4 className="fw-bold mb-2">
+                      <MdOutlineSportsFootball /> Sportsbook
+                    </h4>
+                    <p className="small text-body-secondary mb-0">
+                      <strong>Skybook.ag</strong> delivers competitive odds
+                      across all major sports, including NFL, NBA, MLB, soccer,
+                      and more. It’s a go-to destination for live betting and
+                      sharp lines, catering to both casual and seasoned bettors.
+                    </p>
+                  </div>
+                </Col>
+                <Col md={6}>
+                  <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
+                    <h4 className="fw-bold mb-2">
+                      <FaDice /> Virtual and Live Casino
+                    </h4>
+                    <p className="small text-body-secondary mb-0">
+                      The casino section includes an array of exciting games,
+                      from slots and video poker to classic table games like
+                      blackjack and roulette. For a more immersive experience,
+                      the live casino brings the action to life with
+                      professional dealers.
+                    </p>
+                  </div>
+                </Col>
+                <Col md={6}>
+                  <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
+                    <h4 className="fw-bold mb-2">
+                      <TbPlayCard /> Racebook
+                    </h4>
+                    <p className="small text-body-secondary mb-0">
+                      Horse racing fans can enjoy betting on all major tracks
+                      and international events, with user-friendly interfaces
+                      and enticing rebates.
+                    </p>
+                  </div>
+                </Col>
+                <Col md={6}>
+                  <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
+                    <h4 className="fw-bold mb-2">
+                      <FaTicket /> Lottery
+                    </h4>
+                    <p className="small text-body-secondary mb-0">
+                      Lottery enthusiasts can try their luck with a variety of
+                      games, adding an extra layer of excitement to the
+                      platform.
+                    </p>
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+
+          <Row className="align-items-center justify-content-center g-3 g-lg-5 mt-0">
+            <Col lg={6}>
+              <p className="fw-medium">
+                With over 25 years of experience, <strong>Skybook.ag </strong>{" "}
+                combines reliability, variety, and a player-first approach,
+                making it a standout choice for online betting.
+              </p>
+
+              <Row className="g-3">
+                <Col md={4}>
+                  <div className="h-100 p-4 rounded-4 border border-success">
+                    <h4 className="fw-bold mb-3">Deposit Options:</h4>
+                    <ul className="mb-0">
+                      <li>KriPay (Google Pay & Apple Pay)</li>
+                      <li>Send Bitcoin with Cash App</li>
+                      <li>Bitcoin, Ethereum, Litecoin, Tether (USDT), USDC</li>
+                      <li>Zpay</li>
+                      <li>Boss Revolution</li>
+                      <li>Person to Person</li>
+                      <li>Credit Cards</li>
+                    </ul>
+                  </div>
+                </Col>
+
+                <Col md={4}>
+                  <div className="h-100 p-4 rounded-4 border border-success">
+                    <h4 className="fw-bold mb-3">Payout Options:</h4>
+                    <ul className="mb-0">
+                      <li>Tether (USDT)</li>
+                      <li>Bitcoin</li>
+                      <li>Person to Person</li>
+                      <li>Checks</li>
+                    </ul>
+                  </div>
+                </Col>
+
+                <Col md={4}>
+                  <div className="h-100 p-4 rounded-4 border border-success">
+                    <h4 className="fw-bold mb-3">Types of Wagers:</h4>
+                    <p className="mb-0">
+                      Straight Wagers, Point Spread, Money Line Wagers, Total
+                      Wagers, Buying Point, Proposition Wagers, Futures,
+                      Parlays, Round Robins, Teasers, Special Teasers and
+                      Parlays, Special College Football Teasers, If Wagers,
+                      Action Reverse, 'To Win It All' Futures, Half-Time Wagers,
+                      Quarter Wagers, Horse Wagers.
+                    </p>
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+
+            <Col lg={5} className="justify-content-center text-center">
+              <img
+                src={SKSecondImg}
+                alt="Bogart Casino promotions view"
+                className="img-fluid rounded-4 shadow-sm"
+              />
 
               <Button
-                as={Link}
-                to="/commissions"
-                variant="outline-light"
-                size="lg"
-                className="rounded-pill fw-bold text-uppercase px-4"
+                href="https://affiliate2.skybook.ag/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="warning"
+                className="rounded-pill fw-bold text-uppercase px-4 mt-4"
               >
-                View Commissions
+                Visit Skybook Affiliate Platform 
               </Button>
-            </div>
-          </Col>
+            </Col>
+          </Row>
+        </Container>
 
-          <Col lg={5}>
-            <div className="brands-product-card rounded-5 p-4 p-lg-5">
-              <Carousel
-                fade
-                controls
-                indicators
-                interval={3000}
-                pause="hover"
-                className="brands-product-carousel"
+        {/* Betmania Section */}
+        <Container id="betmania" className="mt-5">
+          <Row className="align-items-center justify-content-center g-2 g-lg-5">
+            <Col lg={5}>
+              <span className="text-warning fw-bold text-uppercase small">
+                Affiliate Brand
+              </span>
+
+              <h2 className="display-4 fw-bold">Betmania</h2>
+
+              <p className="text-body-secondary">
+                Since 2004, <strong>Betmania.ag</strong> has been a trusted name in the online gaming industry, offering a comprehensive platform that includes a Sportsbook, Virtual and Live Casino, Racebook, and Lottery. Known for its longevity and reliability, Betmania sets itself apart with the most competitive bonuses in the industry, designed to maximize your winnings.
+              </p>
+
+              <img
+                src={BMMainImg}
+                alt="Betmania page view"
+                className="img-fluid rounded-4 shadow-sm"
+              />
+            </Col>
+
+            <Col lg={6}>
+              <Row className="g-3 mt-0 mt-lg-4">
+                <Col md={6}>
+                  <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
+                    <h4 className="fw-bold mb-2">
+                      <MdOutlineSportsFootball /> Sportsbook
+                    </h4>
+                    <p className="small text-body-secondary mb-0">
+                      <strong>Betmania.ag</strong> provides a wide range of betting options with sharp lines on all major sports, ensuring a premium experience for sports enthusiasts.
+                    </p>
+                  </div>
+                </Col>
+                <Col md={6}>
+                  <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
+                    <h4 className="fw-bold mb-2">
+                      <FaDice /> Virtual and Live Casino
+                    </h4>
+                    <p className="small text-body-secondary mb-0">
+                      Features exciting games and live dealer options.
+                    </p>
+                  </div>
+                </Col>
+                <Col md={6}>
+                  <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
+                    <h4 className="fw-bold mb-2">
+                      <TbPlayCard /> Racebook
+                    </h4>
+                    <p className="small text-body-secondary mb-0">
+                      Covers all major tracks with an attractive 15% weekly rebate on net losses.
+                    </p>
+                  </div>
+                </Col>
+                <Col md={6}>
+                  <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
+                    <h4 className="fw-bold mb-2">
+                      <FaTicket /> Lottery
+                    </h4>
+                    <p className="small text-body-secondary mb-0">
+                     This section completes the platform, offering a chance to test your luck in a straightforward and engaging way.
+                    </p>
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+
+          <Row className="align-items-center justify-content-center g-3 g-lg-5 mt-0">
+            <Col lg={6}>
+              <p className="fw-medium">
+                <strong>Betmania</strong> also takes pride in its top-of-the-line customer service, ensuring players feel supported and valued every step of the way. With over two decades of experience, <strong>Betmania.ag </strong>{" "} continues to deliver a trusted and dynamic gaming experience.
+              </p>
+
+              <Row className="g-3">
+                <Col md={4}>
+                  <div className="h-100 p-4 rounded-4 border border-danger">
+                    <h4 className="fw-bold mb-3">Deposit Options:</h4>
+                    <ul className="mb-0">
+                      <li>KriPay (Google Pay & Apple Pay)</li>
+                      <li>Send Bitcoin with Cash App</li>
+                      <li>Bitcoin, Ethereum, Litecoin, Tether (USDT), USDC</li>
+                      <li>Zpay</li>
+                      <li>Boss Revolution</li>
+                      <li>Person to Person</li>
+                      <li>Credit Cards</li>
+                    </ul>
+                  </div>
+                </Col>
+
+                <Col md={4}>
+                  <div className="h-100 p-4 rounded-4 border border-danger">
+                    <h4 className="fw-bold mb-3">Payout Options:</h4>
+                    <ul className="mb-0">
+                      <li>Tether (USDT)</li>
+                      <li>Bitcoin</li>
+                      <li>Person to Person</li>
+                      <li>Checks</li>
+                    </ul>
+                  </div>
+                </Col>
+
+                <Col md={4}>
+                  <div className="h-100 p-4 rounded-4 border border-danger">
+                    <h4 className="fw-bold mb-3">Types of Wagers:</h4>
+                    <p className="mb-0">
+                      Straight Bets, Parlays, Teasers, If Bets, Reverses, Live Wagering.
+                    </p>
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+
+            <Col lg={5} className="justify-content-center text-center">
+              <img
+                src={BMSecondImg}
+                alt="Bogart Casino promotions view"
+                className="img-fluid rounded-4 shadow-sm"
+              />
+
+              <Button
+                href="https://affiliate2.betmania.ag/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="warning"
+                className="rounded-pill fw-bold text-uppercase px-4 mt-4"
               >
-                {products.map((product) => (
-                  <Carousel.Item key={product.title}>
-                    <div className="text-center">
-                      <img
-                        src={product.image}
-                        alt={product.title}
-                        className="img-fluid product-img mb-4"
-                        width="500"
-                        height="500"
-                      />
+                Visit Betmania Affiliate Platform
+              </Button>
+            </Col>
+          </Row>
+        </Container>
 
-                      <h3 className="fw-bold mb-3">{product.title}</h3>
-                    </div>
-                  </Carousel.Item>
-                ))}
-              </Carousel>
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </section>
+        {/* Bogart Casino Section */}
+        <Container id="bogartcasino" className="mt-5">
+          <Row className="align-items-center justify-content-center g-2 g-lg-5">
+            <Col lg={5}>
+              <span className="text-warning fw-bold text-uppercase small">
+                Affiliate Brand
+              </span>
+              <h2 className="display-4 fw-bold mt-2 mb-4">Bogart Casino</h2>
+
+              <p className="text-body-secondary">
+                Newly revamped and relaunched, <strong>Bogart Casino</strong>{" "}
+                brings a fresh experience to online gaming. Originally
+                established in 2001, Bogart Casino built its reputation offering
+                a robust selection of virtual casino games, live dealer action,
+                and lottery-style entertainment. Now, with an upgraded platform,
+                players can enjoy an even more immersive and reliable gaming
+                environment.
+              </p>
+              <img
+                src={BogartMainImg}
+                alt="Bogart Casino page view"
+                className="img-fluid rounded-4 shadow-sm"
+              />
+            </Col>
+
+            <Col lg={6}>
+              <Row className="g-3 mt-0 mt-lg-4">
+                <Col md={6}>
+                  <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
+                    <h4 className="fw-bold mb-2">
+                      <FaDice /> Virtual Casino
+                    </h4>
+                    <p className="small text-body-secondary mb-0">
+                      Step into the action at{" "}
+                      <strong>Bogart Casino’s Virtual Casino,</strong>
+                      where over 1000 slots, thrilling fish and shooting games,
+                      fast-paced crash games, and classic table favorites await.
+                      There’s something for every player—anytime, anywhere.
+                    </p>
+                  </div>
+                </Col>
+                <Col md={6}>
+                  <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
+                    <h4 className="fw-bold mb-2">
+                      <TbPlayCard /> Live Casino
+                    </h4>
+                    <p className="small text-body-secondary mb-0">
+                      Experience the thrill of real-time gaming at Bogart
+                      Casino’s Live Casino. Play live blackjack, baccarat,
+                      roulette, sicbo, and more—streamed straight to your screen
+                      with professional dealers and nonstop action.
+                    </p>
+                  </div>
+                </Col>
+                <Col md={12}>
+                  <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
+                    <h4 className="fw-bold mb-2">
+                      <FaTicket /> Lottery
+                    </h4>
+                    <p className="small text-body-secondary mb-0">
+                      Fans of lottery games can enjoy an extra thrill with our
+                      selection of options, including the popular Daily 3 and
+                      Daily 4 draws.
+                    </p>
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+
+          <Row className="align-items-center justify-content-center g-3 g-lg-5 mt-0">
+            <Col lg={6}>
+              <p className="fw-medium">
+                <strong>Bogartcasino.ag</strong> is committed to outstanding
+                customer service while offering one of the best game selections
+                in the industry, featuring a wide catalog designed to cater to
+                every type of player.
+              </p>
+
+              <Row className="g-3">
+                <Col md={6}>
+                  <div className="h-100 p-4 rounded-4 border border-warning">
+                    <h4 className="fw-bold mb-3">Deposit Options:</h4>
+                    <ul className="mb-0">
+                      <li>KriPay (Google Pay & Apple Pay)</li>
+                      <li>Tether (USDT), USDC, Bitcoin, Litecoin, Ethereum</li>
+                      <li>Boss Revolution</li>
+                      <li>Person to Person</li>
+                      <li>Credit Cards</li>
+                    </ul>
+                  </div>
+                </Col>
+
+                <Col md={6}>
+                  <div className="h-100 p-4 rounded-4 border border-warning">
+                    <h4 className="fw-bold mb-3">Payout Options:</h4>
+                    <ul className="mb-0">
+                      <li>Tether (USDT)</li>
+                      <li>Bitcoin</li>
+                      <li>Person to Person</li>
+                      <li>Checks</li>
+                    </ul>
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+
+            <Col lg={5} className="text-center">
+              <img
+                src={BogartSecondImg}
+                alt="Bogart Casino promotions view"
+                className="img-fluid rounded-4 shadow-sm"
+              />
+              <Button
+                href="https://affiliate2.bogartcasino.ag/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="warning"
+                className="rounded-pill fw-bold text-uppercase px-4 mt-4"
+              >
+                Visit Bogart Casino Affiliate Platform
+              </Button>
+            </Col>
+          </Row>
+        </Container>
+      </section>
 
       <CTAGeneral />
       <BrandPeekSlider />
