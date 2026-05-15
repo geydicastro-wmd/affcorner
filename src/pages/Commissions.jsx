@@ -1,4 +1,4 @@
-import CommissionPlans from "../components/Commissions";
+import CommissionPlans from "../components/home/Commissions";
 import InternalHeader from "../components/common/InternalHeader";
 import CTAGeneral from "../components/common/CTAGeneral";
 import BrandPeekSlider from "../components/common/BrandPeekSlider";

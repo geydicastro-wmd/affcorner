@@ -1,9 +1,9 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import brand1 from "../assets/brands/brand1.png";
-import brand2 from "../assets/brands/brand2.png";
-import brand3 from "../assets/brands/brand3.png";
-import brand4 from "../assets/brands/brand4.png";
+import brand1 from "../../assets/brands/brand1.png";
+import brand2 from "../../assets/brands/brand2.png";
+import brand3 from "../../assets/brands/brand3.png";
+import brand4 from "../../assets/brands/brand4.png";
 
 const brands = [
   {

@@ -1,5 +1,6 @@
 import { StrictMode, lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
+import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
 import "@fontsource/lato/400.css";
@@ -31,6 +32,7 @@ const Terms = lazy(() => import("./pages/Terms"));
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <HelmetProvider>
       <BrowserRouter>
         <ScrollToTop />
         <Suspense fallback={<Loading />}>
@@ -54,5 +56,6 @@ createRoot(document.getElementById("root")).render(
           </Routes>
         </Suspense>
       </BrowserRouter>
+    </HelmetProvider>
   </StrictMode>
 );

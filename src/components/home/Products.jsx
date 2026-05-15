@@ -1,13 +1,13 @@
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Icon01 from "../assets/products/icons_products_01.png";
-import Icon02 from "../assets/products/icons_products_02.png";
-import Icon03 from "../assets/products/icons_products_03.png";
-import Icon04 from "../assets/products/icons_products_04.png";
-import CardBg01 from "../assets/products/sp_back.jpg";
-import CardBg02 from "../assets/products/livecasino_back.jpg";
-import CardBg03 from "../assets/products/hr_back.jpg";
-import CardBg04 from "../assets/products/virtualcasino_back.jpg";
+import Icon01 from "../../assets/products/icons_products_01.png";
+import Icon02 from "../../assets/products/icons_products_02.png";
+import Icon03 from "../../assets/products/icons_products_03.png";
+import Icon04 from "../../assets/products/icons_products_04.png";
+import CardBg01 from "../../assets/products/sp_back.jpg";
+import CardBg02 from "../../assets/products/livecasino_back.jpg";
+import CardBg03 from "../../assets/products/hr_back.jpg";
+import CardBg04 from "../../assets/products/virtualcasino_back.jpg";
 
 const products = [
   {

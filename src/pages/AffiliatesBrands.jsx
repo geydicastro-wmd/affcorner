@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CTAGeneral from "../components/common/CTAGeneral";
 import BrandPeekSlider from "../components/common/BrandPeekSlider";
 
@@ -32,6 +33,16 @@ import SKSecondImg from "../assets/pages_internal/2_sk.jpg";
 import BMMainImg from "../assets/pages_internal/1_bm.jpg";
 import BMSecondImg from "../assets/pages_internal/2_bm.jpg";
 
+import Betphoenix from "../assets/affbrands/betphoenix.png";
+import Skybook from "../assets/affbrands/skybook.png";
+import Betmania from "../assets/affbrands/betmania.png";
+import BogartCasino from "../assets/affbrands/bogartcasino.png";
+
+import BetPhoenixLogo from "../assets/brands/brand1.png";
+import SkybookLogo from "../assets/brands/brand2.png";
+import BetmaniaLogo from "../assets/brands/brand3.png";
+import BogartCasinoLogo from "../assets/brands/brand4.png";
+
 const products = [
   {
     title: "Sportsbook",
@@ -51,9 +62,35 @@ const products = [
   },
 ];
 
+const affiliateBrands = [
+  {
+    id: "betphoenix",
+    name: "BetPhoenix",
+    logo: BetPhoenixLogo,
+  },
+  {
+    id: "skybook",
+    name: "Skybook",
+    logo: SkybookLogo,
+  },
+  {
+    id: "betmania",
+    name: "Betmania",
+    logo: BetmaniaLogo,
+  },
+  {
+    id: "bogartcasino",
+    name: "Bogart Casino",
+    logo: BogartCasinoLogo,
+  },
+];
+
 export default function AffiliatesBrands() {
+  const [activeBrand, setActiveBrand] = useState(null);
+
   return (
     <div>
+      {/* Header */}
       <section className="brands-hero text-light position-relative overflow-hidden pt-5">
         <Container className="position-relative py-5">
           <Row className="align-items-center justify-content-between min-vh-75 g-5">
@@ -134,10 +171,36 @@ export default function AffiliatesBrands() {
           <h2 className="display-4 fw-bold mt-2 mb-0">Affiliate Brands</h2>
         </Container>
 
+        <Container className="mb-5">
+          <Row className="g-3 justify-content-center">
+            {affiliateBrands.map((brand) => (
+              <Col key={brand.id} xs={6} md={3}>
+                <button
+                  type="button"
+                  className={`w-100 h-100 border rounded-4 bg-body p-4 shadow-sm ${
+                    activeBrand === brand.id ? "border-warning" : "border-0"
+                  }`}
+                  onClick={() => setActiveBrand(brand.id)}
+                  aria-controls={brand.id}
+                  aria-expanded={activeBrand === brand.id}
+                >
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    className="img-fluid"
+                    style={{ maxHeight: "72px", objectFit: "contain" }}
+                  />
+                </button>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+
         {/* BetPhoenix Section */}
-        <Container id="betphoenix">
+        {activeBrand === "betphoenix" && (
+        <Container id="betphoenix" className="text-center">
           <Row className="align-items-center justify-content-center g-2 g-lg-5">
-            <Col lg={5}>
+            <Col lg={12}>
               <span className="text-warning fw-bold text-uppercase small">
                 Affiliate Brand
               </span>
@@ -152,14 +215,24 @@ export default function AffiliatesBrands() {
               </p>
 
               <img
-                src={BPMainImg}
+                src={Betphoenix}
                 alt="Betphoenix page view"
-                className="img-fluid rounded-4 shadow-sm"
+                className="img-fluid rounded-4"
+                height="400px"
               />
             </Col>
 
+            <p className="fw-medium text-center">
+                With some of the highest bonuses in the industry,{" "}
+                <strong>BetPhoenix.ag </strong> continues to attract players
+                seeking generous promotions and a reliable gaming experience.
+              </p>
+          </Row>
+
+          <Row className="align-items-center text-start justify-content-center g-3 g-lg-5 mt-0">
+
             <Col lg={6}>
-              <Row className="g-3 mt-0 mt-lg-4">
+              <Row >
                 <Col md={6}>
                   <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
                     <h4 className="fw-bold mb-2">
@@ -212,16 +285,12 @@ export default function AffiliatesBrands() {
                   </div>
                 </Col>
               </Row>
-            </Col>
-          </Row>
 
-          <Row className="align-items-center justify-content-center g-3 g-lg-5 mt-0">
+
+            </Col>
+            
             <Col lg={6}>
-              <p className="fw-medium">
-                With some of the highest bonuses in the industry,{" "}
-                <strong>BetPhoenix.ag </strong> continues to attract players
-                seeking generous promotions and a reliable gaming experience.
-              </p>
+              
 
               <Row className="g-3">
                 <Col md={4}>
@@ -263,30 +332,27 @@ export default function AffiliatesBrands() {
               </Row>
             </Col>
 
-            <Col lg={5} className="justify-content-center text-center">
-              <img
-                src={BPSecondImg}
-                alt="Bogart Casino promotions view"
-                className="img-fluid rounded-4 shadow-sm"
-              />
+            
 
-              <Button
+          </Row>
+
+          <Button
                 href="https://affiliate2.betphoenix.ag/login"
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="warning"
                 className="rounded-pill fw-bold text-uppercase px-4 mt-4"
               >
-                Visit BetPhoenix Affiliate Platform 
+                Visit Betphoenix Affiliate Platform 
               </Button>
-            </Col>
-          </Row>
         </Container>
+        )}
 
         {/* Skybook Section */}
-        <Container id="skybook" className="mt-5">
+        {activeBrand === "skybook" && (
+        <Container id="skybook" className="text-center">
           <Row className="align-items-center justify-content-center g-2 g-lg-5">
-            <Col lg={5}>
+            <Col lg={12}>
               <span className="text-warning fw-bold text-uppercase small">
                 Affiliate Brand
               </span>
@@ -301,14 +367,23 @@ export default function AffiliatesBrands() {
               </p>
 
               <img
-                src={SKMainImg}
+                src={Skybook}
                 alt="Skybook page view"
-                className="img-fluid rounded-4 shadow-sm"
+                className="img-fluid rounded-4"
+                height="400px"
               />
             </Col>
 
+            <p className="fw-medium text-center">
+              With over 25 years of experience, <strong>Skybook.ag </strong>{" "}
+              combines reliability, variety, and a player-first approach,
+              making it a standout choice for online betting.
+            </p>
+          </Row>
+
+          <Row className="align-items-center text-start justify-content-center g-3 g-lg-5 mt-0">
             <Col lg={6}>
-              <Row className="g-3 mt-0 mt-lg-4">
+              <Row>
                 <Col md={6}>
                   <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
                     <h4 className="fw-bold mb-2">
@@ -362,16 +437,8 @@ export default function AffiliatesBrands() {
                 </Col>
               </Row>
             </Col>
-          </Row>
 
-          <Row className="align-items-center justify-content-center g-3 g-lg-5 mt-0">
             <Col lg={6}>
-              <p className="fw-medium">
-                With over 25 years of experience, <strong>Skybook.ag </strong>{" "}
-                combines reliability, variety, and a player-first approach,
-                making it a standout choice for online betting.
-              </p>
-
               <Row className="g-3">
                 <Col md={4}>
                   <div className="h-100 p-4 rounded-4 border border-success">
@@ -415,31 +482,25 @@ export default function AffiliatesBrands() {
                 </Col>
               </Row>
             </Col>
-
-            <Col lg={5} className="justify-content-center text-center">
-              <img
-                src={SKSecondImg}
-                alt="Bogart Casino promotions view"
-                className="img-fluid rounded-4 shadow-sm"
-              />
-
-              <Button
-                href="https://affiliate2.skybook.ag/login"
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="warning"
-                className="rounded-pill fw-bold text-uppercase px-4 mt-4"
-              >
-                Visit Skybook Affiliate Platform 
-              </Button>
-            </Col>
           </Row>
+
+          <Button
+            href="https://affiliate2.skybook.ag/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="warning"
+            className="rounded-pill fw-bold text-uppercase px-4 mt-4"
+          >
+            Visit Skybook Affiliate Platform
+          </Button>
         </Container>
+        )}
 
         {/* Betmania Section */}
-        <Container id="betmania" className="mt-5">
+        {activeBrand === "betmania" && (
+        <Container id="betmania" className="text-center">
           <Row className="align-items-center justify-content-center g-2 g-lg-5">
-            <Col lg={5}>
+            <Col lg={12}>
               <span className="text-warning fw-bold text-uppercase small">
                 Affiliate Brand
               </span>
@@ -451,14 +512,25 @@ export default function AffiliatesBrands() {
               </p>
 
               <img
-                src={BMMainImg}
+                src={Betmania}
                 alt="Betmania page view"
-                className="img-fluid rounded-4 shadow-sm"
+                className="img-fluid rounded-4"
+                height="400px"
               />
             </Col>
 
+            <p className="fw-medium text-center">
+              <strong>Betmania</strong> also takes pride in its top-of-the-line
+              customer service, ensuring players feel supported and valued every
+              step of the way. With over two decades of experience,{" "}
+              <strong>Betmania.ag </strong> continues to deliver a trusted and
+              dynamic gaming experience.
+            </p>
+          </Row>
+
+          <Row className="align-items-center text-start justify-content-center g-3 g-lg-5 mt-0">
             <Col lg={6}>
-              <Row className="g-3 mt-0 mt-lg-4">
+              <Row>
                 <Col md={6}>
                   <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
                     <h4 className="fw-bold mb-2">
@@ -501,14 +573,8 @@ export default function AffiliatesBrands() {
                 </Col>
               </Row>
             </Col>
-          </Row>
 
-          <Row className="align-items-center justify-content-center g-3 g-lg-5 mt-0">
             <Col lg={6}>
-              <p className="fw-medium">
-                <strong>Betmania</strong> also takes pride in its top-of-the-line customer service, ensuring players feel supported and valued every step of the way. With over two decades of experience, <strong>Betmania.ag </strong>{" "} continues to deliver a trusted and dynamic gaming experience.
-              </p>
-
               <Row className="g-3">
                 <Col md={4}>
                   <div className="h-100 p-4 rounded-4 border border-danger">
@@ -547,31 +613,25 @@ export default function AffiliatesBrands() {
                 </Col>
               </Row>
             </Col>
-
-            <Col lg={5} className="justify-content-center text-center">
-              <img
-                src={BMSecondImg}
-                alt="Bogart Casino promotions view"
-                className="img-fluid rounded-4 shadow-sm"
-              />
-
-              <Button
-                href="https://affiliate2.betmania.ag/login"
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="warning"
-                className="rounded-pill fw-bold text-uppercase px-4 mt-4"
-              >
-                Visit Betmania Affiliate Platform
-              </Button>
-            </Col>
           </Row>
+
+          <Button
+            href="https://affiliate2.betmania.ag/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="warning"
+            className="rounded-pill fw-bold text-uppercase px-4 mt-4"
+          >
+            Visit Betmania Affiliate Platform
+          </Button>
         </Container>
+        )}
 
         {/* Bogart Casino Section */}
-        <Container id="bogartcasino" className="mt-5">
+        {activeBrand === "bogartcasino" && (
+        <Container id="bogartcasino" className="text-center">
           <Row className="align-items-center justify-content-center g-2 g-lg-5">
-            <Col lg={5}>
+            <Col lg={12}>
               <span className="text-warning fw-bold text-uppercase small">
                 Affiliate Brand
               </span>
@@ -587,14 +647,24 @@ export default function AffiliatesBrands() {
                 environment.
               </p>
               <img
-                src={BogartMainImg}
+                src={BogartCasino}
                 alt="Bogart Casino page view"
-                className="img-fluid rounded-4 shadow-sm"
+                className="img-fluid rounded-4"
+                height="400px"
               />
             </Col>
 
+            <p className="fw-medium text-center">
+              <strong>Bogartcasino.ag</strong> is committed to outstanding
+              customer service while offering one of the best game selections
+              in the industry, featuring a wide catalog designed to cater to
+              every type of player.
+            </p>
+          </Row>
+
+          <Row className="align-items-center text-start justify-content-center g-3 g-lg-5 mt-0">
             <Col lg={6}>
-              <Row className="g-3 mt-0 mt-lg-4">
+              <Row>
                 <Col md={6}>
                   <div className="h-100 p-4 rounded-4 bg-body-tertiary shadow-sm">
                     <h4 className="fw-bold mb-2">
@@ -636,17 +706,8 @@ export default function AffiliatesBrands() {
                 </Col>
               </Row>
             </Col>
-          </Row>
 
-          <Row className="align-items-center justify-content-center g-3 g-lg-5 mt-0">
             <Col lg={6}>
-              <p className="fw-medium">
-                <strong>Bogartcasino.ag</strong> is committed to outstanding
-                customer service while offering one of the best game selections
-                in the industry, featuring a wide catalog designed to cater to
-                every type of player.
-              </p>
-
               <Row className="g-3">
                 <Col md={6}>
                   <div className="h-100 p-4 rounded-4 border border-warning">
@@ -674,25 +735,19 @@ export default function AffiliatesBrands() {
                 </Col>
               </Row>
             </Col>
-
-            <Col lg={5} className="text-center">
-              <img
-                src={BogartSecondImg}
-                alt="Bogart Casino promotions view"
-                className="img-fluid rounded-4 shadow-sm"
-              />
-              <Button
-                href="https://affiliate2.bogartcasino.ag/login"
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="warning"
-                className="rounded-pill fw-bold text-uppercase px-4 mt-4"
-              >
-                Visit Bogart Casino Affiliate Platform
-              </Button>
-            </Col>
           </Row>
+
+          <Button
+            href="https://affiliate2.bogartcasino.ag/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="warning"
+            className="rounded-pill fw-bold text-uppercase px-4 mt-4"
+          >
+            Visit Bogart Casino Affiliate Platform
+          </Button>
         </Container>
+        )}
       </section>
 
       <CTAGeneral />

@@ -1,7 +1,7 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import useReveal from "../hooks/useReveal";
-import CtaImage from "../assets/cta_sp.png";
+import useReveal from "../../hooks/useReveal";
+import CtaImage from "../../assets/cta_sp.png";
 
 export default function CTASection() {
   useReveal();

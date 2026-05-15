@@ -1,11 +1,11 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import useReveal from "../hooks/useReveal";
+import useReveal from "../../hooks/useReveal";
 
-import BPImg from "../assets/pages/betphoenix-page.jpg";
-import SKImg from "../assets/pages/skybook-page.jpg";
-import BMImg from "../assets/pages/betmania-page.jpg";
-import BCImg from "../assets/pages/bogartcasino_img.jpg";
+import BPImg from "../../assets/pages/betphoenix-page.jpg";
+import SKImg from "../../assets/pages/skybook-page.jpg";
+import BMImg from "../../assets/pages/betmania-page.jpg";
+import BCImg from "../../assets/pages/bogartcasino_img.jpg";
 
 
 const brands = [
