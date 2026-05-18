@@ -51,7 +51,7 @@ export default function BrandsLogos() {
           {brands.map((brand) => (
             <Col key={brand.name} xs={12} sm={6} lg={3}>
               <Link
-                to="/affiliates-brands"
+                to="/affiliates-brands" 
                 className="brands-logos__card"
                 aria-label={`View ${brand.name} brand details`}
               >

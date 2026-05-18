@@ -188,7 +188,7 @@ export default function AffiliatesBrands() {
                     src={brand.logo}
                     alt={brand.name}
                     className="img-fluid"
-                    style={{ maxHeight: "72px", objectFit: "contain" }}
+                    style={{ maxHeight: "150px", objectFit: "contain" }}
                   />
                 </button>
               </Col>

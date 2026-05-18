@@ -1,4 +1,4 @@
-import { StrictMode, lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -10,7 +10,6 @@ import "./scss/index.scss";
 
 import Loading from "./components/common/loading.jsx";
 import ScrollToTop from "./components/common/ScrollToTop.jsx";
-import AffiliatesBrands from "./pages/AffiliatesBrands";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -31,31 +30,29 @@ const SkybookAff = lazy(() => import("./pages/SkybookAff"));
 const Terms = lazy(() => import("./pages/Terms"));
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <HelmetProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <Suspense fallback={<Loading />}>
-          <Routes>
-            <Route path="/" element={<App />}>
-              <Route index element={<Home />} />
-              <Route path="about" element={<About />} />
-              <Route path="affiliates-brands" element={<AffiliatesBrands />} />
-              <Route path="commissions" element={<Commissions />} />
-              <Route path="contact" element={<Contact />} />
-              <Route path="frequentlyaskedquestions" element={<Frequentlyaskedquestions />} />
-              <Route path="join" element={<Join />} />
-              <Route path="register-now" element={<Register />} />
-              <Route path="login" element={<Login />} />
-              <Route path="terms-and-conditions" element={<Terms />} />
-            </Route>
-            <Route path="bogart-casino-affiliates" element={<BogartCasinoAff />} />
-            <Route path="betmania-affiliates" element={<BetmaniaAff />} />
-            <Route path="betphoenix-affiliates" element={<BetphoenixAff />} />
-            <Route path="skybook-affiliates" element={<SkybookAff />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </HelmetProvider>
-  </StrictMode>
+  <HelmetProvider>
+    <BrowserRouter>
+      <ScrollToTop />
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="affiliates-brands" element={<Brands />} />
+            <Route path="commissions" element={<Commissions />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="frequentlyaskedquestions" element={<Frequentlyaskedquestions />} />
+            <Route path="join" element={<Join />} />
+            <Route path="register-now" element={<Register />} />
+            <Route path="login" element={<Login />} />
+            <Route path="terms-and-conditions" element={<Terms />} />
+          </Route>
+          <Route path="bogart-casino-affiliates" element={<BogartCasinoAff />} />
+          <Route path="betmania-affiliates" element={<BetmaniaAff />} />
+          <Route path="betphoenix-affiliates" element={<BetphoenixAff />} />
+          <Route path="skybook-affiliates" element={<SkybookAff />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  </HelmetProvider>
 );

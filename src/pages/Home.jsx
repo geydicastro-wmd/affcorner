@@ -20,7 +20,9 @@ const defaultHelmet = {
 };
 
 export default function Home() {
-  const { content, helmet, renderHtml } = useCmsPage("home", { defaultHelmet });
+  const { content, helmet, renderHtml, sliders, slidersLoading } = useCmsPage("home", {
+    defaultHelmet,
+  });
 
   return (
     <>
@@ -59,7 +61,7 @@ export default function Home() {
           <meta name="twitter:image" content={helmet.twitterImage} />
         )}
       </Helmet>
-      <HeroSlider />
+      <HeroSlider slidesData={sliders} loading={slidersLoading} />
       {content && (
         <section className="cms-page-content">
           <div

@@ -22,6 +22,14 @@ const pageEndpoints = {
   ],
 };
 
+const sliderEndpoints = {
+  home: [
+    `/sliders/?brand=${BRAND_NAME}&language=${DEFAULT_LANGUAGE}&order_by=position`,
+  ],
+};
+
+const requestCache = new Map();
+
 function unwrapPageData(responseData) {
   const page =
     responseData?.items?.[0] ||
@@ -177,9 +185,13 @@ async function fetchFirstAvailable(endpoints) {
 
   for (const endpoint of endpoints) {
     try {
-      const response = await api.get(endpoint);
-      return response.data;
+      if (!requestCache.has(endpoint)) {
+        requestCache.set(endpoint, api.get(endpoint).then((response) => response.data));
+      }
+
+      return await requestCache.get(endpoint);
     } catch (error) {
+      requestCache.delete(endpoint);
       lastError = error;
     }
   }
@@ -192,14 +204,18 @@ export default function useCmsPage(pageType, options = {}) {
     endpoints = pageEndpoints[pageType] || [
       `/content-page/admin?brand_id=${BRAND_ID}&page_type=${pageType}&language=${DEFAULT_LANGUAGE}`,
     ],
+    slidersEndpoints = sliderEndpoints[pageType] || [],
     defaultHelmet = fallbackHelmet,
   } = options;
 
   const [page, setPage] = useState(null);
+  const [sliders, setSliders] = useState(null);
+  const [slidersLoading, setSlidersLoading] = useState(Boolean(slidersEndpoints.length));
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const endpointKey = endpoints.join("|");
+  const slidersEndpointKey = slidersEndpoints.join("|");
 
   useEffect(() => {
     let isMounted = true;
@@ -233,6 +249,42 @@ export default function useCmsPage(pageType, options = {}) {
     };
   }, [endpointKey]);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadSliders() {
+      if (!slidersEndpoints.length) {
+        setSliders(null);
+        setSlidersLoading(false);
+        return;
+      }
+
+      setSlidersLoading(true);
+
+      try {
+        const responseData = await fetchFirstAvailable(slidersEndpoints);
+
+        if (isMounted) {
+          setSliders(responseData?.items || []);
+        }
+      } catch {
+        if (isMounted) {
+          setSliders([]);
+        }
+      } finally {
+        if (isMounted) {
+          setSlidersLoading(false);
+        }
+      }
+    }
+
+    loadSliders();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [slidersEndpointKey]);
+
   const helmet = useMemo(
     () => normalizeHelmetData(page, defaultHelmet),
     [defaultHelmet, page],
@@ -246,6 +298,8 @@ export default function useCmsPage(pageType, options = {}) {
     helmet,
     content,
     blocks,
+    sliders,
+    slidersLoading,
     loading,
     error,
     getBlocks: (type) => blocks.filter((block) => block.type === type),
