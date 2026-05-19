@@ -79,7 +79,7 @@ export default function Footer() {
           <Row className="text-center">
             <Col xs={12} className="my-3">
               <p>
-                © 2026 AffCorner.com. All rights reserved.{" "}
+                © {new Date().getFullYear()} AffCorner.com. All rights reserved.{" "}
                 <span>
                   <Link to="/terms-and-conditions">Terms and Conditions</Link>
                 </span>

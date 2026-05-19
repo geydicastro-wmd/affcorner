@@ -30,6 +30,7 @@ const BlankLayout = lazy(() => import("./components/layout/BlankLayout.jsx"));
 const WelcomeSpecial = lazy(() => import("./pages/landing/WelcomeSpecial.jsx"));
 
 const Terms = lazy(() => import("./pages/Terms"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 createRoot(document.getElementById("root")).render(
   <HelmetProvider>
@@ -48,6 +49,7 @@ createRoot(document.getElementById("root")).render(
             <Route path="register-now" element={<Register />} />
             <Route path="login" element={<Login />} />
             <Route path="terms-and-conditions" element={<Terms />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
           <Route element={<BlankLayout />}>
             <Route path="bogart-casino-affiliates" element={<BogartCasinoAff />} />
