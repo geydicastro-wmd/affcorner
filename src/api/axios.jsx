@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://cmsfe3xc5.bookcdn.net:8443", // ✅ REAL API
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
 export default api;

@@ -10,7 +10,7 @@ const navItems = [
   { label: "Home", to: "/", icon: FaHome },
   { label: "About", to: "/about", icon: FaInfoCircle },
   { label: "Brands", to: "/affiliates-brands", icon: MdLocalOffer },
-  { label: "Join", to: "/join", icon: MdHandshake },
+  { label: "Why Join", to: "/join", icon: MdHandshake },
   { label: "Commissions", to: "/commissions", icon: RiMoneyDollarCircleFill },
   { label: "Contact", to: "/contact", icon: MdMail },
   { label: "FAQs", to: "/frequentlyaskedquestions", icon: FaQuestionCircle },

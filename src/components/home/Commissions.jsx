@@ -31,7 +31,7 @@ export default function CommissionPlans({ showHeading = true }) {
         <Container>
           <Row className="section-heading">
             <Col lg={7}>
-              <p className="section-heading__eyebrow">Monthly net revenue</p>
+              <p className="section-heading__eyebrow">Net Revenue (Monthly settled)</p>
               <h1 className="section-heading__title">Commission Plans</h1>
             </Col>
           </Row>

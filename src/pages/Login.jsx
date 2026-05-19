@@ -95,8 +95,7 @@ export default function Login() {
                         href={brand.loginLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        variant="warning"
-                        className="rounded-pill fw-bold text-uppercase px-4 d-inline-flex align-items-center gap-2"
+                        className="btn-yellow text-uppercase d-inline-flex align-items-center gap-2"
                       >
                         Log In Here <FaExternalLinkAlt size={13} />
                       </Button>

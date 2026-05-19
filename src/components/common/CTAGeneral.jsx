@@ -39,9 +39,8 @@ export default function CTAGeneral() {
               <Button
                 as={Link}
                 to="/register-now"
-                variant="warning"
                 size="lg"
-                className="rounded-pill fw-bold text-uppercase px-5 py-3"
+                className="btn-yellow text-uppercase px-5 py-3"
               >
                 Register Now
               </Button>

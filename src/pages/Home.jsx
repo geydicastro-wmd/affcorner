@@ -62,14 +62,14 @@ export default function Home() {
         )}
       </Helmet>
       <HeroSlider slidesData={sliders} loading={slidersLoading} />
-      {content && (
+      {/* {content && (
         <section className="cms-page-content">
           <div
             className="container py-4"
             dangerouslySetInnerHTML={renderHtml(content)}
           />
         </section>
-      )}
+      )} */}
       <BrandsLogos />
       <BrandsIntro />
       <ProductsSection />

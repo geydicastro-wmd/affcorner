@@ -1,6 +1,6 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { FaArrowRight, FaLock, FaChartLine, FaMoneyBillWave } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 import AffcornerLogo from "../assets/logo.png";
 import BetphoenixLogoLarge from "../assets/logo_brands/LOGO_BETPHOENIX.png";
@@ -44,63 +44,17 @@ export default function BetphoenixAff() {
         </Row>
 
         <Row className="align-items-center justify-content-between g-5">
-          <Col lg={7} className="text-center text-lg-start">
-            <span className="text-warning fw-bold text-uppercase small">
-              Betphoenix Affiliates
-            </span>
-
-            <h1 className="display-4 fw-bold mt-3 mb-4">
-              Partner with a sportsbook brand built to convert.
-            </h1>
-
-            <p className="lead text-light-emphasis mb-5">
-              Sign up for the Betphoenix affiliate program and start promoting a
-              competitive sportsbook and casino platform backed by trusted
-              affiliate support.
-            </p>
-
+          <Col lg={6} className="affiliate-brand-column text-center">
             <picture>
               <source media="(max-width: 991px)" srcSet={BetphoenixLogoMobile} />
               <img
                 src={BetphoenixLogoLarge}
                 alt="Betphoenix"
-                className="img-fluid brand-logo-hero mb-5"
+                className="img-fluid brand-logo-hero"
                 width="450"
                 height="450"
               />
             </picture>
-
-            <Row className="g-3">
-              <Col md={4}>
-                <div className="partner-benefit h-100 p-3 rounded-4">
-                  <FaChartLine className="text-warning fs-3 mb-3" />
-                  <h5 className="fw-bold mb-1">High Conversion</h5>
-                  <p className="small text-light-emphasis mb-0">
-                    Promote a brand designed for sportsbook traffic.
-                  </p>
-                </div>
-              </Col>
-
-              <Col md={4}>
-                <div className="partner-benefit h-100 p-3 rounded-4">
-                  <FaMoneyBillWave className="text-warning fs-3 mb-3" />
-                  <h5 className="fw-bold mb-1">Affiliate Revenue</h5>
-                  <p className="small text-light-emphasis mb-0">
-                    Monetize your players with strong commission potential.
-                  </p>
-                </div>
-              </Col>
-
-              <Col md={4}>
-                <div className="partner-benefit h-100 p-3 rounded-4">
-                  <FaLock className="text-warning fs-3 mb-3" />
-                  <h5 className="fw-bold mb-1">Secure Sign-Up</h5>
-                  <p className="small text-light-emphasis mb-0">
-                    Complete your registration directly through the affiliate form.
-                  </p>
-                </div>
-              </Col>
-            </Row>
           </Col>
 
           <Col lg={5}>

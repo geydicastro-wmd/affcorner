@@ -23,11 +23,17 @@
     object-fit: contain;
   }
 
+  .affiliate-brand-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 620px;
+  }
+
   .brand-logo-hero {
-    max-height: 360px;
+    max-height: 420px;
     object-fit: contain;
     filter: drop-shadow(0 30px 45px rgba(0, 0, 0, 0.45));
-    animation: brandFloat 6s ease-in-out infinite;
   }
 
   .partner-benefit,
@@ -92,6 +98,10 @@
 
     .brand-logo-hero {
       max-height: 180px;
+    }
+
+    .affiliate-brand-column {
+      min-height: auto;
     }
 
     .signup-iframe-wrap {

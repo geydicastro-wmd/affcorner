@@ -9,14 +9,17 @@
   }
 
   .brands-product-card {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    backdrop-filter: blur(14px);
-    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .brands-product-carousel {
+    padding-bottom: 2.2rem;
   }
 
   .product-img {
-    max-height: 340px;
+    max-height: 450px;
     object-fit: contain;
     filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.45));
   }
@@ -27,12 +30,12 @@
   }
 
   .carousel-indicators {
-    position: static;
-    margin: 2rem 0 0;
+    bottom: 0;
+    margin: 0;
 
     button {
-      width: 10px;
-      height: 10px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
     }
   }
@@ -44,6 +47,158 @@
 
     .product-img {
       max-height: 260px;
+    }
+  }
+}
+
+.affiliates-brands-page {
+  .affiliate-brand-details {
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+
+    > .container img {
+      transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
+
+      &:hover {
+        transform: scale(1.025);
+        filter: saturate(1.05);
+      }
+    }
+
+    ul {
+      padding-left: 1rem;
+
+      li {
+        margin-bottom: 0.45rem;
+      }
+    }
+  }
+
+  div.border-info,
+  div.border-success,
+  div.border-danger,
+  div.border-warning {
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+    color: #212529;
+    border-width: 1px !important;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.08);
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 46%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    &:hover {
+      color: #ffffff;
+      transform: translateY(-4px);
+      box-shadow: 0 24px 58px rgba(0, 0, 0, 0.18);
+
+      &::before {
+        opacity: 0.72;
+      }
+    }
+
+    h4,
+    p,
+    ul,
+    li {
+      position: relative;
+      z-index: 1;
+      color: inherit !important;
+    }
+
+    li::marker {
+      color: currentColor;
+    }
+  }
+
+  div.border-info {
+    border-color:#0069c1 !important;
+
+    &:hover {
+      background: linear-gradient(145deg, #0069c1, #00468d);;
+    }
+  }
+
+  div.border-success {
+    border-color: #1fce7a !important;
+
+    &:hover {
+      background: linear-gradient(145deg, #087144, #064d31);
+    }
+  }
+
+  div.border-danger {
+    border-color: #ff0237 !important;
+
+    &:hover {
+      background: linear-gradient(145deg, #ff0237, #c51a34);
+    }
+  }
+
+  div.border-warning {
+    border-color: #ffb900 !important;
+
+    &:hover {
+      background: linear-gradient(145deg, #9a6700, #5f3f00);
+    }
+  }
+
+  .bg-body-tertiary.shadow-sm {
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12) !important;
+    }
+
+    h4 {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      line-height: 1.15;
+    }
+
+    h4 > svg {
+      flex: 0 0 auto;
+      box-sizing: content-box;
+      width: 1.45rem;
+      height: 1.45rem;
+      padding: 0.75rem;
+      color: #ffb900;
+      background: transparent;
+      border: 2px solid rgba(255, 185, 0, 0.9);
+      border-radius: 50%;
+      box-shadow: none;
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    .bg-body-tertiary.shadow-sm {
+      h4 {
+        align-items: flex-start;
+      }
+
+      h4 > svg {
+        width: 1.2rem;
+        height: 1.2rem;
+        padding: 0.62rem;
+      }
     }
   }
 }

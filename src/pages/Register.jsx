@@ -97,8 +97,7 @@ export default function Register() {
                       <Button
                         as={Link}
                         to={brand.registerLink}
-                        variant="warning"
-                        className="rounded-pill fw-bold text-uppercase px-4"
+                        className="btn-yellow text-uppercase"
                       >
                         Register Now
                       </Button>

@@ -86,10 +86,10 @@ const affiliateBrands = [
 ];
 
 export default function AffiliatesBrands() {
-  const [activeBrand, setActiveBrand] = useState(null);
+  const [activeBrand, setActiveBrand] = useState("betphoenix");
 
   return (
-    <div>
+    <div className="affiliates-brands-page">
       {/* Header */}
       <section className="brands-hero text-light position-relative overflow-hidden pt-5">
         <Container className="position-relative py-5">
@@ -340,8 +340,7 @@ export default function AffiliatesBrands() {
                 href="https://affiliate2.betphoenix.ag/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                variant="warning"
-                className="rounded-pill fw-bold text-uppercase px-4 mt-4"
+                className="btn-yellow mt-5"
               >
                 Visit Betphoenix Affiliate Platform 
               </Button>
@@ -488,8 +487,7 @@ export default function AffiliatesBrands() {
             href="https://affiliate2.skybook.ag/login"
             target="_blank"
             rel="noopener noreferrer"
-            variant="warning"
-            className="rounded-pill fw-bold text-uppercase px-4 mt-4"
+            className="btn-yellow mt-5"
           >
             Visit Skybook Affiliate Platform
           </Button>
@@ -619,8 +617,7 @@ export default function AffiliatesBrands() {
             href="https://affiliate2.betmania.ag/login"
             target="_blank"
             rel="noopener noreferrer"
-            variant="warning"
-            className="rounded-pill fw-bold text-uppercase px-4 mt-4"
+            className="btn-yellow mt-5"
           >
             Visit Betmania Affiliate Platform
           </Button>
@@ -741,8 +738,7 @@ export default function AffiliatesBrands() {
             href="https://affiliate2.bogartcasino.ag/login"
             target="_blank"
             rel="noopener noreferrer"
-            variant="warning"
-            className="rounded-pill fw-bold text-uppercase px-4 mt-4"
+            className="btn-yellow mt-5"
           >
             Visit Bogart Casino Affiliate Platform
           </Button>

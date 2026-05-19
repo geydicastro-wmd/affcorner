@@ -1,6 +1,6 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { FaArrowRight, FaLock, FaChartLine, FaMoneyBillWave } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 import AffcornerLogo from "../assets/logo.png";
 import SkybookLogo from "../assets/logo_brands/SKYBOOK_WH.png";
@@ -48,74 +48,19 @@ export default function SkybookAff() {
         <Row className="align-items-center justify-content-between g-5">
 
           {/* Left side */}
-          <Col lg={7} className="text-center text-lg-start order-1 order-lg-0">
-            <span className="text-warning fw-bold text-uppercase small">
-              Skybook Affiliates
-            </span>
-
-            <h1 className="display-4 fw-bold mt-3 mb-4">
-              Partner with a sportsbook brand built to convert.
-            </h1>
-
-            <p className="lead text-light mb-5">
-              Sign up for the Skybook affiliate program and start promoting a
-              competitive sportsbook and casino platform backed by trusted
-              affiliate support.
-            </p>
-
+          <Col lg={6} className="affiliate-brand-column text-center order-0">
             <picture>
               <img
                 src={SkybookLogo}
                 alt="Skybook"
-                className="img-fluid brand-logo-hero mb-5"
+                className="img-fluid brand-logo-hero"
                 width="450"
               />
             </picture>
-
-            <Row className="g-3">
-              <Col md={4}>
-                <div className="partner-benefit h-100 p-3 rounded-4">
-                  <FaChartLine className="text-warning fs-3 mb-3" />
-                  <h5 className="fw-bold mb-1">High Conversion</h5>
-                  <p className="small text-light mb-0">
-                    Promote a brand designed for sportsbook traffic.
-                  </p>
-                </div>
-              </Col>
-
-              <Col md={4}>
-                <div className="partner-benefit h-100 p-3 rounded-4">
-                  <FaMoneyBillWave className="text-warning fs-3 mb-3" />
-                  <h5 className="fw-bold mb-1">Affiliate Revenue</h5>
-                  <p className="small text-light mb-0">
-                    Monetize your players with strong commission potential.
-                  </p>
-                </div>
-              </Col>
-
-              <Col md={4}>
-                <div className="partner-benefit h-100 p-3 rounded-4">
-                  <FaLock className="text-warning fs-3 mb-3" />
-                  <h5 className="fw-bold mb-1">Secure Sign-Up</h5>
-                  <p className="small text-light mb-0">
-                    Complete your registration directly through the affiliate form.
-                  </p>
-                </div>
-              </Col>
-            </Row>
           </Col>
 
           {/* Register */}
-          <Col lg={5} className="text-center order-0 order-lg-1">
-          <picture>
-              <img
-                src={SkybookLogo}
-                alt="Skybook"
-                className="img-fluid d-lg-none mb-3"
-                width="220"
-                height="220"
-              />
-            </picture>
+          <Col lg={5} className="text-center order-1">
             <div className="signup-panel rounded-5 p-3 p-lg-4 ">
               
               <div className="text-center mb-4">

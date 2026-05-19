@@ -26,6 +26,8 @@ const BogartCasinoAff = lazy(() => import("./pages/BogartCasinoAff"));
 const BetmaniaAff = lazy(() => import("./pages/BetmaniaAff"));
 const BetphoenixAff = lazy(() => import("./pages/BetphoenixAff"));
 const SkybookAff = lazy(() => import("./pages/SkybookAff"));
+const BlankLayout = lazy(() => import("./components/layout/BlankLayout.jsx"));
+const WelcomeSpecial = lazy(() => import("./pages/landing/WelcomeSpecial.jsx"));
 
 const Terms = lazy(() => import("./pages/Terms"));
 
@@ -47,10 +49,13 @@ createRoot(document.getElementById("root")).render(
             <Route path="login" element={<Login />} />
             <Route path="terms-and-conditions" element={<Terms />} />
           </Route>
-          <Route path="bogart-casino-affiliates" element={<BogartCasinoAff />} />
-          <Route path="betmania-affiliates" element={<BetmaniaAff />} />
-          <Route path="betphoenix-affiliates" element={<BetphoenixAff />} />
-          <Route path="skybook-affiliates" element={<SkybookAff />} />
+          <Route element={<BlankLayout />}>
+            <Route path="bogart-casino-affiliates" element={<BogartCasinoAff />} />
+            <Route path="betmania-affiliates" element={<BetmaniaAff />} />
+            <Route path="betphoenix-affiliates" element={<BetphoenixAff />} />
+            <Route path="skybook-affiliates" element={<SkybookAff />} />
+            <Route path="welcome-special" element={<WelcomeSpecial />} />
+          </Route>
         </Routes>
       </Suspense>
     </BrowserRouter>

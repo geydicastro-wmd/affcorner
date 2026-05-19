@@ -6,9 +6,12 @@ import {
   FaUsers,
   FaComments,
   FaTools,
+  FaHandshake,
 } from "react-icons/fa";
+import BrandPeekSlider from "../components/common/BrandPeekSlider";
 import SportsImg from "../assets/about_us/about-us_sports.jpg";
 import CasinoImg from "../assets/about_us/about-us_casino.jpg";
+
 
 const reasons = [
   {
@@ -109,65 +112,62 @@ export default function About() {
           </Col>
         </Row>
 
-        <Row className="align-items-center justify-content-center g-5 py-5">
-          <Col lg={5}>
-            <div className="ratio ratio-4x3 rounded-4 overflow-hidden shadow-sm">
-              <img
-                src={CasinoImg}
-                alt="Casino affiliate program"
-                className="w-100 h-100 object-fit-cover"
-              />
+        
+      </Container>
+      <Container
+        fluid
+        className="about-platform my-5 p-0"
+        style={{ backgroundImage: `url(${CasinoImg})` }}
+      >
+        <div className="about-platform__overlay">
+          <Container>
+            <div className="about-platform__intro text-center">
+              <span className="text-warning fw-bold text-uppercase small">
+                Why Join
+              </span>
+
+              <h2 className="display-6 fw-bold mt-2 mb-3">
+                Why Choose Affcorner?
+              </h2>
+
+              <p className="mb-0">
+                Built for affiliates who need reliable tracking, responsive
+                support, competitive commissions, and brand partners that convert.
+              </p>
             </div>
-          </Col>
 
-          <Col lg={6}>
-            <span className="text-warning fw-bold text-uppercase small">
-              Why Join
-            </span>
-
-            <h2 className="display-6 fw-bold mt-2 mb-4">
-              Why Choose Affcorner?
-            </h2>
-
-            <Row className="g-3">
+            <div className="about-platform__grid">
               {reasons.map((item) => (
-                <Col xs={12} key={item.title}>
-                  <div className="d-flex gap-3 p-3 rounded-4 bg-body-tertiary">
-                    <div className="text-warning fs-3 lh-1">{item.icon}</div>
+                <article className="about-platform__item" key={item.title}>
+                  <div className="about-platform__icon">{item.icon}</div>
 
-                    <div>
-                      <h5 className="fw-bold mb-1">{item.title}</h5>
-                      <p className="mb-0 small">{item.text}</p>
-                    </div>
-                  </div>
-                </Col>
+                  <h3>{item.title}</h3>
+
+                  <p>{item.text}</p>
+                </article>
               ))}
-            </Row>
-          </Col>
-        </Row>
+            </div>
+          </Container>
+        </div>
 
-        <Row className="justify-content-center py-5">
-          <Col lg={10}>
-            <Card className="border-0 shadow-sm rounded-4 bg-body-tertiary">
-              <Card.Body className="p-4 p-lg-5 text-center">
+      </Container>
+
+      <Container>
+        <Row className="justify-content-center mb-5">
+        <Col lg={10}>
+            <Card className="h-100 border-0 shadow-sm rounded-4">
+              <Card.Body className="p-4 p-lg-5">
                 <h3 className="fw-bold mb-3">Our Commitment</h3>
-
-                <p>
-                  At Affcorner, we believe in building strong, long-lasting
-                  relationships. Whether you are a seasoned affiliate marketer or
-                  just starting your journey, we are committed to providing the
-                  tools, support, and opportunities you need to thrive.
-                </p>
-
                 <p className="mb-0">
-                  Join us and discover the power of partnership with Affcorner —
-                  where success is shared, and your growth is our priority.
+                 At Affcorner, we believe in building strong, long-lasting relationships. Whether you are a seasoned affiliate marketer or just starting your journey, we are committed to providing the tools, support, and opportunities you need to thrive.
                 </p>
+                <p>Join us and discover the power of partnership with Affcorner — where success is shared, and your growth is our priority.</p>
               </Card.Body>
             </Card>
           </Col>
         </Row>
       </Container>
+      <BrandPeekSlider />
     </>
   );
 }
