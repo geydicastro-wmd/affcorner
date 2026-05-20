@@ -11,10 +11,10 @@ const companyLinks = [
 ];
 
 const affiliateLinks = [
-  { label: "Bogart Casino Affiliates", to: "/bogart-casino-affiliates" },
-  { label: "Betmania Affiliates", to: "/betmania-affiliates" },
   { label: "Betphoenix Affiliates", to: "/betphoenix-affiliates" },
   { label: "Skybook Affiliates", to: "/skybook-affiliates" },
+  { label: "Betmania Affiliates", to: "/betmania-affiliates" },
+  { label: "Bogart Casino Affiliates", to: "/bogart-casino-affiliates" },
 ];
 
 export default function Footer() {
