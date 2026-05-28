@@ -17,6 +17,7 @@ export const CMS_PAGE_TYPES = [
   "Login",
   "Footer",
   "Header",
+  "Landing",
 ];
 
 const requestCache = new Map();

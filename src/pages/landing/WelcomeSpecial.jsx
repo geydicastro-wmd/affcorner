@@ -9,58 +9,80 @@ import {
   FaTelegramPlane,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
+import useCmsPage from "../../hooks/useCmsPage";
 import HeroBg from "../../assets/affcorner-landingpage-hero/affcorner-lp-hero-1920x1050.jpg";
 import Logo from "../../assets/logo.png";
 import BetmaniaLogo from "../../assets/icons_logos/header-card-bm.png";
 import BetphoenixLogo from "../../assets/icons_logos/header-card-bp.png";
 import SkybookLogo from "../../assets/icons_logos/header-card-sk.png";
 
-const benefits = [
-  {
-    title: "50% Commission",
-    text: "Earn big during your first month.",
-  },
-  {
-    title: "Reliable Payments",
-    text: "Always on time and transparent.",
-  },
-  {
-    title: "Top Marketing Tools",
-    text: "Access banners, links, and expert support.",
-  },
-  {
-    title: "Trusted Brand",
-    text: "Partner with a leading sportsbook and casino platform.",
-  },
-];
-
-const brands = [
-  {
-    name: "BetPhoenix",
-    logo: BetphoenixLogo,
-    to: "/betphoenix-affiliates",
-  },
-  {
-    name: "Skybook",
-    logo: SkybookLogo,
-    to: "/skybook-affiliates",
-  },
-  {
-    name: "Betmania",
-    logo: BetmaniaLogo,
-    to: "/betmania-affiliates",
-  },
-];
-
 export default function WelcomeSpecial() {
   const [showContact, setShowContact] = useState(false);
 
+  const { page, translation, getBlocks } = useCmsPage("Landing");
+
+  const h1 = getBlocks("h1");
+  const h2 = getBlocks("h2");
+  const h3 = getBlocks("h3");
+  const h5 = getBlocks("h5");
+  const h6 = getBlocks("h6");
+  const p = getBlocks("p");
+  const imgs = getBlocks("img");
+  const title =
+    page?.title || translation?.title || "Welcome Special | AffCorner";
+
+  const benefits = [
+    {
+      title: h3[0]?.content || "50% Commission",
+      text: p[1]?.content || "Earn big during your first month.",
+    },
+    {
+      title: h3[1]?.content || "Reliable Payments",
+      text: p[2]?.content ||   "Always on time and transparent.",
+    },
+    {
+      title: h3[2]?.content || "Top Marketing Tools",
+      text: p[3]?.content || "Access banners, links, and expert support.",
+    },
+    {
+      title: h3[3]?.content || "Trusted Brand",
+      text: p[4]?.content || "Partner with a leading sportsbook and casino platform.",
+    },
+  ];
+
+  const brands = [
+    {
+      name: "BetPhoenix",
+      logo: BetphoenixLogo,
+      to: "/betphoenix-affiliates",
+    },
+    {
+      name: "Skybook",
+      logo: SkybookLogo,
+      to: "/skybook-affiliates",
+    },
+    {
+      name: "Betmania",
+      logo: BetmaniaLogo,
+      to: "/betmania-affiliates",
+    },
+  ];
+
   return (
     <div className="welcome-special">
+      {translation && (
+        <Helmet>
+          <title>{translation.meta_title || page?.title || title}</title>
+        </Helmet>
+      )}
+
       <header className="welcome-special__topbar">
         <Link to="/" aria-label="AffCorner home">
-          <img src={Logo} alt="AffCorner" className="welcome-special__logo" />
+          <img
+            src={imgs[0]?.src || Logo}
+            alt="AffCorner"
+            className="welcome-special__logo"
+          />
         </Link>
       </header>
 
@@ -73,16 +95,15 @@ export default function WelcomeSpecial() {
             <Row className="justify-content-center text-center text-light">
               <Col xl={11}>
                 <h1 className="welcome-special__headline mt-3">
-                  <span>Earn 50% Commission</span> Join Our Affiliate Program
-                  Today!
+                  <span>{h1[0]?.content || "Earn 50% Commission"}</span>
+                  {h1[1]?.content || "Join Our Affiliate Program Today!"}
                 </h1>
               </Col>
 
               <Col lg={10} xl={9}>
                 <p className="welcome-special__subhead">
-                  Take your affiliate earnings to new heights with our exclusive{" "}
-                  <strong>50% commission</strong> welcome bonus for your first
-                  month!
+                  {p[0]?.content ||
+                    "Take your affiliate earnings to new heights with our exclusive 50% commission welcome bonus for your first month!"}
                 </p>
 
                 <Button
@@ -90,7 +111,8 @@ export default function WelcomeSpecial() {
                   to="/register-now"
                   className="btn-yellow welcome-special__mobile-cta"
                 >
-                  Get Started!
+                  {" "}
+                  {h5[0]?.content || "Get Started!"}
                 </Button>
               </Col>
             </Row>
@@ -99,8 +121,11 @@ export default function WelcomeSpecial() {
               <Col lg={6}>
                 <div className="welcome-special__benefits-panel">
                   <div className="welcome-special__section-heading text-center">
-                    <span>Why Join?</span>
-                    <h2>Built for affiliates who want to move faster.</h2>
+                    <span>{h2[0]?.content || "Why Join?"}</span>
+                    <h2>
+                      {p[1]?.content ||
+                        "Built for affiliates who want to move faster."}
+                    </h2>
                   </div>
 
                   <Row className="g-3">
@@ -127,35 +152,35 @@ export default function WelcomeSpecial() {
                 <div className="welcome-special__deadline text-center">
                   <p className="welcome-special__deadline-kicker">
                     <FaClock aria-hidden="true" />
-                    Limited Welcome Offer
+                    {h6[0]?.content || "Limited Welcome Offer"}
                   </p>
 
                   <h2>
-                    Hurry, this offer ends{" "}
-                    <span>March 1, 2025!</span>
+                    {h3[4]?.content || "Hurry, this offer ends March 1, 2025!"}
                   </h2>
 
                   <p className="welcome-special__signup-copy">
-                    <Link to="/register-now">Sign Up Now</Link> and start
-                    earning today!
+                    <Link to="/register-now">{h3[5]?.content || "Sign Up Now"}</Link> {h3[6]?.content || "and start earning today!"} 
                   </p>
 
                   <p className="welcome-special__terms">
-                    Terms apply. New affiliates only.
+                    {p[6]?.content || "Terms apply. New affiliates only."}
                   </p>
 
                   <Button
                     as={Link}
                     to="/register-now"
                     className="btn-yellow welcome-special__cta"
-                  >
-                    Get Started!
+                  > {h5[0]?.content || "Get Started!"}
                   </Button>
                 </div>
               </Col>
             </Row>
 
-            <section className="welcome-special__brands" aria-label="Affiliate brands">
+            <section
+              className="welcome-special__brands"
+              aria-label="Affiliate brands"
+            >
               <Row className="g-4 justify-content-center">
                 {brands.map((brand) => (
                   <Col md={4} lg={3} key={brand.name}>
@@ -175,21 +200,13 @@ export default function WelcomeSpecial() {
                   variant="outline-warning"
                   className="welcome-special__contact-btn"
                   onClick={() => setShowContact(true)}
-                >
-                  Contact Us
+                > {p[7]?.content || "Contact Us!"}
                 </Button>
               </div>
             </section>
           </Container>
         </Container>
       </section>
-
-      <footer className="welcome-special__footer">
-        <p>© 2026 AffCorner.com. All rights reserved.</p>
-        <Link to="/" aria-label="AffCorner home">
-          <img src={Logo} alt="AffCorner" />
-        </Link>
-      </footer>
 
       <Modal
         show={showContact}
@@ -200,13 +217,12 @@ export default function WelcomeSpecial() {
         <Modal.Header closeButton className="welcome-special__modal-header">
           <div>
             <span>AffCorner Support</span>
-            <Modal.Title>Contact Info</Modal.Title>
+            <Modal.Title>{p[8]?.content || "Contact Info"}</Modal.Title>
           </div>
         </Modal.Header>
         <Modal.Body className="welcome-special__modal-body">
           <p className="welcome-special__modal-copy">
-            Reach our team directly and we will help you get started with the
-            right affiliate setup.
+           {p[9]?.content || "Reach our team directly and we will help you get started with the right affiliate setup."}
           </p>
 
           <div className="welcome-special__contact-list">
@@ -218,8 +234,8 @@ export default function WelcomeSpecial() {
                 <FaEnvelope aria-hidden="true" />
               </span>
               <div>
-                <strong>Email</strong>
-                <small>support@affcorner.com</small>
+                <strong>{h6[1]?.content || "Email"}</strong>
+                <small>{p[10]?.content || "support@affcorner.com"}</small>
               </div>
             </a>
 
@@ -228,8 +244,8 @@ export default function WelcomeSpecial() {
                 <FaTelegramPlane aria-hidden="true" />
               </span>
               <div>
-                <strong>Telegram</strong>
-                <small>Priscilla_AffCorner</small>
+                <strong>{h6[2]?.content || "Telegram"}</strong>
+                <small>{p[11]?.content || "Priscilla_AffCorner"}</small>
               </div>
             </div>
 
@@ -238,20 +254,16 @@ export default function WelcomeSpecial() {
                 <FaSkype aria-hidden="true" />
               </span>
               <div>
-                <strong>Skype</strong>
-                <small>Priscilla_AffCorner</small>
+                <strong>{h6[3]?.content || "Skype"}</strong>
+                <small>{p[12]?.content || "Priscilla_AffCorner"}</small>
               </div>
             </div>
           </div>
 
-          <div className="welcome-special__modal-note">
-            <FaRegCommentDots aria-hidden="true" />
-            <span>New affiliates only. Terms apply.</span>
-          </div>
         </Modal.Body>
         <Modal.Footer>
           <Button className="btn-yellow" onClick={() => setShowContact(false)}>
-            Close
+          {p[13]?.content || "Close"}
           </Button>
         </Modal.Footer>
       </Modal>
