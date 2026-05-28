@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
@@ -6,16 +7,36 @@ import AffcornerLogo from "../assets/logo.png";
 import BetmaniaLogoLarge from "../assets/logo_brands/LOGO_BETMANIA_WH.png";
 import BetmaniaLogoMobile from "../assets/logo_brands/BETMANIA_WH.png";
 
+import useCmsPage from "../hooks/useCmsPage";
+
 export default function BetmaniaAff() {
+  const cmsPage = useCmsPage("BasicPage", {
+    title: "Brand Affiliate Register",
+  });
+
+  const { page, translation, getBlocks } = cmsPage;
+
+  const title = page?.title || translation?.title || "Brand Affiliate Register";
+
+  const h2 = getBlocks("h2");
+  const h6 = getBlocks("h6");
+  const p = getBlocks("p");
+  const imgs = getBlocks("img");
+
   return (
     <main className="affiliate-signup-page bg-dark text-light">
+      {translation && (
+        <Helmet>
+          <title>{translation.meta_title || page?.title || title}</title>
+        </Helmet>
+      )}
       <Container className="py-4 py-lg-5">
         <Row className="align-items-center justify-content-between border-bottom border-light border-opacity-10 pb-4 mb-5">
           <Col lg={5} className="text-center text-lg-start">
             <Link to="/">
               <img
-                src={AffcornerLogo}
-                alt="Affcorner"
+                src={imgs[0]?.src || AffcornerLogo}
+                alt={imgs[0]?.alt || "Affcorner"}
                 className="img-fluid affiliate-logo"
                 width="250"
                 height="78"
@@ -28,8 +49,7 @@ export default function BetmaniaAff() {
               href="https://affiliate2.betmania.ag/login"
               variant="outline-light"
               className="rounded-pill fw-bold px-4 me-2"
-            >
-              Sign-In
+            >{p[0]?.content || "Sign-In"}
             </Button>
 
             <Button
@@ -37,8 +57,7 @@ export default function BetmaniaAff() {
               to="/register-now"
               variant="warning"
               className="rounded-pill fw-bold px-4"
-            >
-              Sign-Up
+            > {p[1]?.content || "Sign-Up"}
             </Button>
           </Col>
         </Row>
@@ -46,10 +65,10 @@ export default function BetmaniaAff() {
         <Row className="align-items-center justify-content-between g-5">
           <Col lg={6} className="affiliate-brand-column text-center">
             <picture>
-              <source media="(max-width: 991px)" srcSet={BetmaniaLogoMobile} />
+              <source media="(max-width: 991px)" srcSet={imgs[3]?.src || BetmaniaLogoMobile} />
               <img
-                src={BetmaniaLogoLarge}
-                alt="Betmania"
+                src={imgs[3]?.src || BetmaniaLogoLarge}
+                alt={imgs[3]?.alt || "Betmania"}
                 className="img-fluid brand-logo-hero"
                 width="450"
                 height="450"
@@ -61,10 +80,10 @@ export default function BetmaniaAff() {
             <div className="signup-panel rounded-5 p-3 p-lg-4">
               <div className="text-center mb-4">
                 <span className="text-warning fw-bold text-uppercase small">
-                  Start Now
+                  {h6[0]?.content || "Start Now"}
                 </span>
 
-                <h2 className="fw-bold mt-2 mb-0">Sign-Up</h2>
+                <h2 className="fw-bold mt-2 mb-0">{h2[0]?.content || "Sign-Up"}</h2>
               </div>
 
               <div className="signup-iframe-wrap rounded-4 bg-light">
@@ -77,13 +96,13 @@ export default function BetmaniaAff() {
                 />
               </div>
 
-              <p className="small text-light-emphasis text-center mt-3 mb-0">
-                Already have an account?{" "}
+              <p className="small text-light text-center mt-3 mb-0">
+               {p[2]?.content || "Already have an account?"}{" "}
                 <a
                   href="https://affiliate2.betmania.ag/login"
                   className="text-warning fw-bold text-decoration-none"
                 >
-                  Sign in here <FaArrowRight size={12} />
+                  {p[3]?.content || "Sign in here"} <FaArrowRight size={12} />
                 </a>
               </p>
             </div>

@@ -1,8 +1,6 @@
 @use 'bootstrap/dist/css/bootstrap.min.css';
 @use './App';
 @use './theme/theme';
-@use './components/AppNavbar';
-@use './components/HeroSlider';
 @use './colors/colors';
 @use './components/BrandsLogos';
 @use './components/SectionHeading';
@@ -16,6 +14,8 @@
 @use "./components/Ctageneral.scss";
 @use "./components/InternalHeader";
 @use "./components/Reveal.scss";
+@use './components/AppNavbar';
+@use './components/HeroSlider';
 @use "./pages/About.scss";
 @use "./pages/AffBrands.scss";
 @use "./pages/Join.scss";

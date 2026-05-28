@@ -2,11 +2,11 @@ import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
-import slide1 from "../assets/hero/slide1.jpg";
-import slide2 from "../assets/hero/slide2.jpg";
-import slide3 from "../assets/hero/slide3.jpg";
-import slide4 from "../assets/hero/slide4.jpg";
-import slide5 from "../assets/hero/slide5.jpg";
+import slide1 from "../../assets/hero/slide1.jpg";
+import slide2 from "../../assets/hero/slide2.jpg";
+import slide3 from "../../assets/hero/slide3.jpg";
+import slide4 from "../../assets/hero/slide4.jpg";
+import slide5 from "../../assets/hero/slide5.jpg";
 
 const fallbackSlides = [
   {

@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import InternalHeader from "../components/common/InternalHeader";
-import useCmsPage from "../hooks/useCmsPage";
+import useTermsContent from "../content/hooks/useTermsContent";
 
 const defaultHelmet = {
   title: "Terms and Conditions | AffCorner",
@@ -11,8 +11,8 @@ const defaultHelmet = {
 };
 
 export default function Terms() {
-  const { content, helmet, loading, renderHtml } = useCmsPage(
-    "terms-and-conditions",
+  const { content, helmet, loading, renderHtml } = useTermsContent(
+    "Terms and Conditions",
     { defaultHelmet },
   );
 

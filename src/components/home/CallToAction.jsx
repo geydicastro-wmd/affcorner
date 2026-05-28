@@ -3,8 +3,24 @@ import { Link } from "react-router-dom";
 import useReveal from "../../hooks/useReveal";
 import CtaImage from "../../assets/cta_sp.png";
 
-export default function CTASection() {
+function getImageSrc(image, fallbackImage) {
+  return image?.url || image?.src || image?.content || fallbackImage;
+}
+
+export default function CTASection({ cms }) {
   useReveal();
+
+  const {
+    getBlocks,
+    getText,
+    // renderHtml,
+  } = cms || {};
+
+  const h1 = getBlocks?.("h1") || [];
+  const h6 = getBlocks?.("h6") || [];
+  const h5 = getBlocks?.("h5") || [];
+  const p = getBlocks?.("p") || [];
+  const imgs = getBlocks?.("img") || [];
 
   return (
     <section className="cta">
@@ -18,13 +34,14 @@ export default function CTASection() {
             className="cta__content text-center text-xl-start order-2 order-xl-1 reveal reveal--left"
             data-reveal
           >
-            <p className="cta__eyebrow">Ready to partner?</p>
+            <p className="cta__eyebrow">
+              {h6[4]?.content || "Ready to partner?"}
+            </p>
             <h1 className="cta__title">
-              The best converting and highest paying program
+             {h1[4]?.content || "The best converting and highest paying program"}
             </h1>
             <p className="cta__copy">
-              Join a brand portfolio built to help affiliates convert better,
-              retain longer, and scale with confidence.
+             {p[12]?.content || "Join a brand portfolio built to help affiliates convert better, retain longer, and scale with confidence."}
             </p>
 
             <Button
@@ -32,7 +49,7 @@ export default function CTASection() {
               to="/register-now"
               className="cta__btn"
             >
-              Register Now
+              {getText(h5[2]?.content) || "Register Now" }
             </Button>
           </Col>
 
@@ -43,7 +60,7 @@ export default function CTASection() {
             className="cta__image text-center order-1 order-xl-2 reveal reveal--right"
             data-reveal
           >
-            <img src={CtaImage} alt="Paying Program" />
+            <img src={getImageSrc(imgs[16], CtaImage)} alt="Paying Program" />
           </Col>
 
         </Row>

@@ -1,64 +1,74 @@
 import InternalHeader from "../components/common/InternalHeader";
+import { Helmet } from "react-helmet-async";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaArrowRight, FaExternalLinkAlt } from "react-icons/fa";
+import useCmsPage from "../hooks/useCmsPage";
 
 import BetPhoenixLogo from "../assets/icons_logos/header-card-bp.png";
 import BetmaniaLogo from "../assets/icons_logos/header-card-bm.png";
 import SkybookLogo from "../assets/icons_logos/header-card-sk.png";
 import BogartLogo from "../assets/icons_logos/header-card-bc.png";
 
-const brands = [
+
+export default function Login() {
+  const { page, translation, loading, error, getBlocks } =
+    useCmsPage("Login");
+  const h2 = getBlocks("h2");
+  const h6 = getBlocks("h6");
+  const p = getBlocks("p");
+  const imgs = getBlocks("img");
+
+  const title = page?.title || translation?.title || "Account Login";
+
+  const brands = [
   {
-    name: "BetPhoenix",
-    logo: BetPhoenixLogo,
-    alt: "BetPhoenix logo",
+    name: imgs[0]?.alt || "BetPhoenix",
+    logo: imgs[0]?.src || BetPhoenixLogo,
+    alt: imgs[0]?.alt || "BetPhoenix logo",
     infoLink: "/affiliates-brands#betphoenix",
     loginLink: "https://affiliate2.betphoenix.ag/login",
   },
   {
-    name: "Betmania",
-    logo: BetmaniaLogo,
-    alt: "Betmania logo",
+    name: imgs[1]?.alt || "Skybook",
+    logo: imgs[1]?.src || SkybookLogo,
+    alt: imgs[1]?.alt || "Skybook logo",
+    infoLink: "/affiliates-brands#skybook",
+    loginLink: "https://affiliate2.skybook.ag/login",
+  },
+   {
+    name: imgs[2]?.alt || "Betmania",
+    logo: imgs[2]?.src || BetmaniaLogo,
+    alt: imgs[2]?.alt || "Betmania logo",
     infoLink: "/affiliates-brands#betmania",
     loginLink: "https://affiliate2.betmania.ag/login",
   },
   {
-    name: "Skybook",
-    logo: SkybookLogo,
-    alt: "Skybook logo",
-    infoLink: "/affiliates-brands#skybook",
-    loginLink: "https://affiliate2.skybook.ag/login",
-  },
-  {
-    name: "Bogart Casino",
-    logo: BogartLogo,
-    alt: "Bogart Casino logo",
+    name: imgs[3]?.alt || "Bogart Casino",
+    logo: imgs[3]?.src || BogartLogo,
+    alt: imgs[3]?.alt || "Bogart Casino logo",
     infoLink: "/affiliates-brands#bogartcasino",
     loginLink: "https://affiliate2.bogartcasino.ag/login",
   },
 ];
 
-export default function Login() {
   return (
     <div>
-      <InternalHeader title="Account Login" />
+      <InternalHeader title={title} />
+
       <main className="affiliate-login-page">
         <Container className="py-5">
+          {loading && !page && !error && <span className="visually-hidden">Loading...</span>}
           <Row className="justify-content-center text-center py-lg-5">
             <Col lg={8}>
               <span className="text-warning fw-bold text-uppercase small">
-                Affiliate Login
+              {h6[0]?.content || "Affiliate Login"}
               </span>
 
               <h1 className="display-5 fw-bold mt-2 mb-3">
-                Access your affiliate dashboard.
+              {h2[0]?.content || "Access your affiliate dashboard."}
               </h1>
 
-              <p className="lead text-body-secondary mb-0">
-                Choose your brand and log in to manage your campaigns, review
-                your stats, and track your affiliate performance.
-              </p>
             </Col>
           </Row>
 
@@ -80,14 +90,14 @@ export default function Login() {
                     <h3 className="fw-bold mb-3">{brand.name}</h3>
 
                     <p className="text-body-secondary mb-2">
-                      For more information about {brand.name}...
+                      {p[0]?.content || `For more information about ${brand.name}...`}
                     </p>
 
                     <Link
                       to={brand.infoLink}
                       className="d-inline-flex align-items-center gap-2 text-muted text-decoration-none small mb-4"
                     >
-                      Click here <FaArrowRight />
+                     {p[1]?.content || "Click here"} <FaArrowRight />
                     </Link>
 
                     <div>
@@ -97,7 +107,7 @@ export default function Login() {
                         rel="noopener noreferrer"
                         className="btn-yellow text-uppercase d-inline-flex align-items-center gap-2"
                       >
-                        Log In Here <FaExternalLinkAlt size={13} />
+                       {p[2]?.content || "Log In Here"} <FaExternalLinkAlt size={13} />
                       </Button>
                     </div>
                   </Card.Body>

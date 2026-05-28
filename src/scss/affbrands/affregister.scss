@@ -1,9 +1,7 @@
 .affiliate-signup-page {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 12% 20%, rgba(255, 193, 7, 0.16), transparent 28%),
-    radial-gradient(circle at 90% 80%, rgba(255, 193, 7, 0.12), transparent 28%),
-    linear-gradient(135deg, rgba(5, 5, 5, 0.88) 0%, rgba(17, 17, 17, 0.72) 55%, rgba(31, 22, 5, 0.9) 100%),
+    linear-gradient(135deg, rgba(5, 5, 5, 0.94) 0%, rgba(16, 16, 16, 0.86) 58%, rgba(30, 24, 10, 0.94) 100%),
     url("../../assets/affcorner-signup-1920x1050.jpg");
   background-position: center;
   background-size: cover;
@@ -11,9 +9,7 @@
 
   &.bogart {
     background-image:
-      radial-gradient(circle at 12% 20%, rgba(255, 193, 7, 0.16), transparent 28%),
-      radial-gradient(circle at 90% 80%, rgba(255, 193, 7, 0.12), transparent 28%),
-      linear-gradient(135deg, rgba(5, 5, 5, 0.9) 0%, rgba(17, 17, 17, 0.78) 55%, rgba(31, 22, 5, 0.92) 100%),
+      linear-gradient(135deg, rgba(5, 5, 5, 0.95) 0%, rgba(16, 16, 16, 0.88) 58%, rgba(30, 24, 10, 0.95) 100%),
       url("../../assets/bogartcasino-signup-1920x1050.jpg");
     background-position: center top;
   }
@@ -27,7 +23,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 620px;
+    min-height: 640px;
   }
 
   .brand-logo-hero {
@@ -36,33 +32,33 @@
     filter: drop-shadow(0 30px 45px rgba(0, 0, 0, 0.45));
   }
 
-  .partner-benefit,
-  .signup-panel {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(14px);
+  .btn {
+    min-height: 2.75rem;
   }
 
-  .partner-benefit {
-    transition: transform 0.25s ease, background-color 0.25s ease;
+  .signup-panel {
+    background: rgba(12, 12, 12, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.48);
+    backdrop-filter: blur(16px);
 
-    &:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.12);
+    h2 {
+      font-size: clamp(1.75rem, 3vw, 2.35rem);
+      letter-spacing: 0;
     }
-  }
-
-  .signup-panel {
-    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
   }
 
   .signup-iframe-wrap {
     height: 750px;
     overflow: hidden;
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
   }
 
   iframe {
     border: 0;
+    background: #ffffff;
   }
 
   @keyframes brandFloat {
@@ -81,17 +77,13 @@
 
   @media (max-width: 991.98px) {
     background-image:
-      radial-gradient(circle at 12% 20%, rgba(255, 193, 7, 0.16), transparent 28%),
-      radial-gradient(circle at 90% 80%, rgba(255, 193, 7, 0.12), transparent 28%),
-      linear-gradient(135deg, rgba(5, 5, 5, 0.9) 0%, rgba(17, 17, 17, 0.78) 55%, rgba(31, 22, 5, 0.92) 100%),
+      linear-gradient(135deg, rgba(5, 5, 5, 0.94) 0%, rgba(16, 16, 16, 0.86) 58%, rgba(30, 24, 10, 0.94) 100%),
       url("../../assets/affcorner-signup-810x1280.jpg");
     background-position: center top;
 
     &.bogart {
       background-image:
-        radial-gradient(circle at 12% 20%, rgba(255, 193, 7, 0.16), transparent 28%),
-        radial-gradient(circle at 90% 80%, rgba(255, 193, 7, 0.12), transparent 28%),
-        linear-gradient(135deg, rgba(5, 5, 5, 0.9) 0%, rgba(17, 17, 17, 0.78) 55%, rgba(31, 22, 5, 0.92) 100%),
+        linear-gradient(135deg, rgba(5, 5, 5, 0.94) 0%, rgba(16, 16, 16, 0.86) 58%, rgba(30, 24, 10, 0.94) 100%),
         url("../../assets/bogartcasino-signup-810x1280.jpg");
       background-position: center top;
     }
@@ -106,6 +98,28 @@
 
     .signup-iframe-wrap {
       height: 720px;
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    .container {
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+
+    .btn {
+      width: 100%;
+      margin: 0 0 0.75rem;
+    }
+
+    .signup-panel {
+      border-radius: 1rem !important;
+      padding: 1rem !important;
+    }
+
+    .signup-iframe-wrap,
+    iframe {
+      border-radius: 0.75rem !important;
     }
   }
 }

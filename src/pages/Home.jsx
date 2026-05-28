@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import useCmsPage from "../hooks/useCmsPage";
-import HeroSlider from "../components/HeroSlider";
+import HeroSlider from "../components/home/HeroSlider";
 import BrandsLogos from "../components/home/BrandsLogos";
 import BrandsIntro from "../components/home/BrandsIntro";
 import ProductsSection from "../components/home/Products";
@@ -20,9 +20,10 @@ const defaultHelmet = {
 };
 
 export default function Home() {
-  const { content, helmet, renderHtml, sliders, slidersLoading } = useCmsPage("home", {
+  const cmsPage = useCmsPage("home", {
     defaultHelmet,
   });
+  const { helmet, sliders, slidersLoading } = cmsPage;
 
   return (
     <>
@@ -62,20 +63,12 @@ export default function Home() {
         )}
       </Helmet>
       <HeroSlider slidesData={sliders} loading={slidersLoading} />
-      {/* {content && (
-        <section className="cms-page-content">
-          <div
-            className="container py-4"
-            dangerouslySetInnerHTML={renderHtml(content)}
-          />
-        </section>
-      )} */}
-      <BrandsLogos />
-      <BrandsIntro />
-      <ProductsSection />
-      <Reasons />
-      <CommissionsPlans />
-      <CallToAction />
+      <BrandsLogos cms={cmsPage} />
+      <BrandsIntro cms={cmsPage} />
+      <ProductsSection cms={cmsPage} />
+      <Reasons cms={cmsPage} />
+      <CommissionsPlans cms={cmsPage} />
+      <CallToAction cms={cmsPage} />
       <BrandPeekSlider />
     </>
   );
